@@ -1,6 +1,10 @@
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv
 ; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+#SingleInstance force
+SendMode Input
+DetectHiddenWindows, on
+SetWinDelay, 0
+
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ScratchDir = C:\Users\op3346\scratch
@@ -12,16 +16,17 @@ ScratchDir = C:\Users\op3346\scratch
 :`t:. oa::. oraenv <<< $(awk -F: '$1 ~ /\+ASM/ {print $1}' /etc/oratab)
 :`t:spv::show parameter
 :`t:rt/::rman target=/
+:`t:cpfs::create pfile='$PWD/init@.ora' from spfile;
+::cdl::cd /var/log/dba
+
+; SQL command
 :`t:ssf::select * from
 :`t:scf::select count(*) from
-::ework::jsrba@csas.cz
-::cdl::cd /var/log/dba
+
 ::llt::ls -ltr | tail
 ::dush::du -sh * | sort -h | tail
 #Hotstring r c   ; send raw and case sensitive
 ::nfm::{noformat}`n
-;:`t:tfa::tail -f ${ORACLE_BASE}/diag/$([[ ${ORACLE_SID%%[1-9]} = "+ASM" ]] && echo "asm" || echo "rdbms")/$(echo ${ORACLE_SID%%[1-9]}|tr '[:upper:]' '[:lower:]')/${ORACLE_SID}/trace/alert_${ORACLE_SID}.log
-:`t:cpfs::create pfile='$PWD/init@.ora' from spfile;
 
 ; email
 :o:dd,::Dobrý den,`n`n
@@ -29,9 +34,11 @@ ScratchDir = C:\Users\op3346\scratch
 ::sp,::S pozdravem,`n`nJiří Srba
 ::ht,::hotovo,`n`nJS`n`n
 ::ddh,::Dobrý den,`n`nhotovo,`n`nS pozdravem,`n`nJiří Srba
+::ework::jsrba@csas.cz
+
 
 ; Windows and Q closes active window
-#q::
+^q::
 if !WinActive("ahk_class WorkerW")
 	WinClose, A
 return
@@ -55,34 +62,31 @@ PrintScreen::Run, "%windir%\system32\SnippingTool.exe"
 Return
 
 
-; ConEmu64
-#c::
-	Run, D:\App\cmder\cmder.exe, %ScratchDir%
-	;Run, "D:\App\ConEmu\ConEmu64.exe", %ScratchDir%
-	return
-
 ; Hyper terminal
 #h::
 	Run, "C:\Users\sol60210\AppData\Local\hyper\Hyper.exe"
-	return
-
-
-; windows shortcuts
-; KiTTy Oracle
-#o::Send $ORACLE_HOME
+return
 
 ; Win+t pro timestamp
 #t::
 	FormatTime, TimeString, %A_Now%, yyyyMMdd
 	Send %TimeString%
-	return
+return
 
-; Win+- su - oracle
-#-::
-	Send, sudo su - oracle{Enter}
-        Send, LS_COLORS=$LS_COLORS'di=01;36:'{Enter}
-	return
-
+; guake Windows Terminal
+#`::
+    terminal := WinExist("ahk_exe WindowsTerminal.exe")
+    if (terminal)
+    {
+        active := WinActive("ahk_id " terminal)
+        if (active)
+            WinMinimize, ahk_id %active%
+        else
+            WinActivate, ahk_id %terminal%
+    }
+    else
+        Run, wt.exe
+Return
 
 ;-------------------------------------------------------------------;
 ; WindowsKey+Shift+Up / WindowsKey+Shift+Down
