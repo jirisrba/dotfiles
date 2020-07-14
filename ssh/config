@@ -1,0 +1,14 @@
+Host gitlab
+  HostName gitlab.oict.cz
+  User srba
+#   Preferredauthentications publickey
+#   IdentityFile ~/.ssh/id_ed25519
+
+Host swarm-dev
+  HostName 78.128.211.212
+  User srba
+  Port 20072
+
+Host gitlab-runner
+  HostName 10.200.0.45
+  user srba

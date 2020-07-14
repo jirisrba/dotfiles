@@ -14,7 +14,7 @@ alias malina='ssh pi@malina.local'    # ssh malina
 alias ack='ack -i'
 
 # macos aliases
-alias grep='ggrep'
+# alias grep='ggrep'
 alias nc='netcat'
 alias killvscode='pkill -KILL Electron'
 alias err="log show --predicate 'messageType == error' --style syslog --info --last 1m | cut -c 1-22,43-999"
@@ -36,6 +36,9 @@ alias docker-start='open --background -a Docker'
 alias docker-stop="osascript -e 'quit app \"Docker\"'"
 alias run-postgres='docker run --rm --name pg-docker -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=docker -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data -d postgres'
 
+# kubectl aliases
+alias k kubectl
+alias kcuc 'kubectl config current-context'
 
 # CSAS aliases - postupne zrusit ?
 alias ki='kinit --keychain sol60210@CEN.CSIN.CZ && klist'
