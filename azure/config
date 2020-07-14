@@ -8,4 +8,3 @@ cache_ttl = 10
 
 [logging]
 enable_log_file = no
-
