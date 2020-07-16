@@ -4,9 +4,6 @@
 			"path": ".."
 		},
 		{
-			"path": "..\\..\\Documents\\drafts"
-		},
-		{
 			"path": "..\\..\\scratch\\pidlitacka-api"
 		},
 		{
@@ -17,6 +14,12 @@
 		},
 		{
 			"path": "..\\..\\scratch\\gitlab"
+		},
+		{
+			"path": "..\\..\\OneDrive - Operátor ICT, a.s\\drafts"
+		},
+		{
+			"path": "..\\..\\scratch\\azure\\Infrastructure"
 		}
 	],
 	"settings": {}
