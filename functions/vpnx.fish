@@ -1,12 +1,7 @@
 # disconnect VPN
 function vpnx
-
-  for dir in /Volumes/SOL60210 /Volumes/dba
-    if test -d $dir
-      cd $HOME
-      umount $dir
-    end
-  end
-
   /opt/cisco/anyconnect/bin/vpn disconnect
+
+  killall -d "Cisco AnyConnect Secure Mobility Client" &>/dev/null && \
+    killall "Cisco AnyConnect Secure Mobility Client"
 end
