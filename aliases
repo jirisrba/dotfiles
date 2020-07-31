@@ -20,12 +20,13 @@ alias killvscode='pkill -KILL Electron'
 alias err="log show --predicate 'messageType == error' --style syslog --info --last 1m | cut -c 1-22,43-999"
 
 # git aliases
-# https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
+# source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
 alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gst='git status'
-# alias gl='git pull'
+alias gl='git pull'
 alias gup='git pull --rebase'
-# alias gp='git push'
+alias gp='git push'
+alias ga='git add -A'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
 # alias gwip='git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m "wip"; git push --all'
@@ -35,10 +36,15 @@ alias gco='git checkout'
 alias docker-start='open --background -a Docker'
 alias docker-stop="osascript -e 'quit app \"Docker\"'"
 
-
 # kubectl aliases
 alias k kubectl
 alias kcuc 'kubectl config current-context'
+alias kcsc 'k config set-context'
+alias kg 'k get'
+alias kd 'k describe'
+alias kgp 'kg pods'
+alias kgn 'kg nodes'
+
 
 # CSAS aliases - postupne zrusit ?
 alias ki='kinit --keychain sol60210@CEN.CSIN.CZ && klist'
