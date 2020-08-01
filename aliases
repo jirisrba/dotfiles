@@ -13,11 +13,12 @@ alias diff='colordiff'
 alias malina='ssh pi@malina.local'    # ssh malina
 alias ack='ack -i'
 
+
 # macos aliases
-# alias grep='ggrep'
 alias nc='netcat'
 alias killvscode='pkill -KILL Electron'
 alias err="log show --predicate 'messageType == error' --style syslog --info --last 1m | cut -c 1-22,43-999"
+
 
 # git aliases
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
@@ -25,11 +26,10 @@ alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bol
 alias gst='git status'
 alias gl='git pull'
 alias gup='git pull --rebase'
-alias gp='git push'
+alias gp='git push --all'
 alias ga='git add -A'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
-# alias gwip='git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m "wip"; git push --all'
 
 
 # macos docker desktop aliases
