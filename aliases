@@ -28,7 +28,7 @@ alias gl='git pull'
 alias gup='git pull --rebase'
 alias gp='git push --all'
 alias ga='git add -A'
-alias gcmsg='git commit -m'
+alias gcm='git commit -m'
 alias gco='git checkout'
 
 
@@ -56,4 +56,4 @@ alias sp='ssh -l postgres -i ~/.ssh/id_rsa.oracle'
 alias scpo='scp -i ~/.ssh/id_rsa.oracle -C'
 
 # alias rsync-ansible='rsync -Ccazv --exclude='inventory/hosts' --exclude=.DS_Store --exclude=.git -e "ssh -i ~/.ssh/id_rsa.oracle" ~/Scratch/ansible/ oracle@oem12-m.vs.csin.cz:/dba/local/ansible_dev/'
-alias rsync-clone='rsync -Ccazv --exclude=.DS_Store --exclude=.git --exclude=venv -e "ssh -i ~/.ssh/id_rsa.oracle"  ~/Scratch/clone/ oracle@toem-m.vs.csin.cz:/dba/clone/'
+# alias rsync-clone='rsync -Ccazv --exclude=.DS_Store --exclude=.git --exclude=venv -e "ssh -i ~/.ssh/id_rsa.oracle"  ~/Scratch/clone/ oracle@toem-m.vs.csin.cz:/dba/clone/'
