@@ -45,6 +45,7 @@ alias kgp 'kg pods'
 alias kgn 'kg nodes'
 alias kl 'kubectl logs'
 alias ke 'kubectl exec -it'
+alias kbb='kubectl run busybox-test --image=busybox -it --rm --restart=Never --'
 
 
 # CSAS aliases - postupne zrusit ?
