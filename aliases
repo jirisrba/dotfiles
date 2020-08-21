@@ -22,7 +22,7 @@ alias err="log show --predicate 'messageType == error' --style syslog --info --l
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
 alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gst='git status'
-alias gl='git pull'
+alias gpl='git pull --all'
 alias gup='git pull --rebase'
 alias gp='git push --all'
 alias ga='git add -A'
