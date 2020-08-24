@@ -1,3 +1,5 @@
+# ssh config
+
 Host gitlab
   HostName gitlab.oict.cz
   User srba
@@ -9,6 +11,15 @@ Host swarm-dev
   User srba
   Port 20072
 
-Host gitlab-runner
+Host swarm-prod
+  HostName 78.128.211.213
+  User srba
+  Port 20072
+
+Host swarm-mos
+  HostName 10.200.0.53
+  User srba
+
+Host runner
   HostName 10.200.0.45
   user srba
