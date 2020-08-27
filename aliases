@@ -24,7 +24,7 @@ alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bol
 alias gst='git status'
 alias gpl='git pull --all'
 alias gup='git pull --rebase'
-alias gp='git push --all'
+alias gp='git push'
 alias ga='git add -A'
 alias gcm='git commit -m'
 alias gco='git checkout'
