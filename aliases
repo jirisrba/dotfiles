@@ -12,13 +12,13 @@ alias malina='ssh pi@malina.local'    # ssh malina
 alias ack='ack -i'
 
 
-# macos aliases
+# macos alias
 alias nc='netcat'
 alias killvscode='pkill -KILL Electron'
 alias err="log show --predicate 'messageType == error' --style syslog --info --last 1m | cut -c 1-22,43-999"
 
 
-# git aliases
+# git alias
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
 alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gst='git status'
@@ -29,6 +29,8 @@ alias ga='git add -A'
 alias gcm='git commit -m'
 alias gco='git checkout'
 
+# docker alias
+alias d docker
 
 # macos docker desktop aliases
 alias docker-start='open --background -a Docker'
