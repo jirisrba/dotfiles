@@ -10,6 +10,8 @@ alias lt='ls -alhrt | tail'
 alias diff='colordiff'
 alias malina='ssh pi@malina.local'    # ssh malina
 alias ack='ack -i'
+alias llt='ls -lhrt | tail'
+alias dush='du -sh * | sort -h'
 
 
 # macos alias
