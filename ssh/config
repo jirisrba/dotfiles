@@ -6,6 +6,7 @@ Host gitlab
 #   Preferredauthentications publickey
 #   IdentityFile ~/.ssh/id_ed25519
 
+# oict
 Host swarm-dev
   HostName 78.128.211.212
   User srba
@@ -22,4 +23,17 @@ Host swarm-mos
 
 Host runner
   HostName 10.200.0.45
+  user srba
+
+# golemio
+Host golem-front
+  HostName 10.228.0.101
+  user srba
+
+Host golem-back
+  HostName 10.228.0.103
+  user srba
+
+Host golem-monitor
+  HostName 10.228.0.102
   user srba
