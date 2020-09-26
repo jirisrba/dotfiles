@@ -54,13 +54,13 @@ alias kbb='kubectl run busybox-test --image=busybox -it --rm --restart=Never --'
 
 
 # CSAS aliases - postupne zrusit ?
-alias ki='kinit --keychain sol60210@CEN.CSIN.CZ && klist'
-alias sql='/Applications/oracle/sqlcl/bin/sql'
-alias ss='ssh -l sol60210'
-alias so='ssh -l oracle -i ~/.ssh/id_rsa.sol60210@oem'
-alias som='ssh -l oracle -i ~/.ssh/id_rsa.oracle oem12-m.vs.csin.cz'
-alias sp='ssh -l postgres -i ~/.ssh/id_rsa.oracle'
-alias scpo='scp -i ~/.ssh/id_rsa.oracle -C'
+# alias ki='kinit --keychain sol60210@CEN.CSIN.CZ && klist'
+# alias sql='/Applications/oracle/sqlcl/bin/sql'
+# alias ss='ssh -l sol60210'
+# alias so='ssh -l oracle -i ~/.ssh/id_rsa.sol60210@oem'
+# alias som='ssh -l oracle -i ~/.ssh/id_rsa.oracle oem12-m.vs.csin.cz'
+# alias sp='ssh -l postgres -i ~/.ssh/id_rsa.oracle'
+# alias scpo='scp -i ~/.ssh/id_rsa.oracle -C'
 
 # alias rsync-ansible='rsync -Ccazv --exclude='inventory/hosts' --exclude=.DS_Store --exclude=.git -e "ssh -i ~/.ssh/id_rsa.oracle" ~/Scratch/ansible/ oracle@oem12-m.vs.csin.cz:/dba/local/ansible_dev/'
 # alias rsync-clone='rsync -Ccazv --exclude=.DS_Store --exclude=.git --exclude=venv -e "ssh -i ~/.ssh/id_rsa.oracle"  ~/Scratch/clone/ oracle@toem-m.vs.csin.cz:/dba/clone/'
