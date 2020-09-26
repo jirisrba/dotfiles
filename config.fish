@@ -5,7 +5,8 @@ set -gx PATH $HOME/code/bash /usr/local/bin $PATH
 
 # # vscode SQLcl psql
 set -gx PATH "/Applications/oracle/sqlcl/bin" $PATH
-set -gx PATH "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin" $PATH
+set -gx PATH "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" $PATH
+# set -gx PATH "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin" $PATH
 set -gx PATH /usr/local/opt/libpq/bin /usr/local/opt/libpq/bin $PATH
 set -gx PATH "/Applications/Sublime Text.app/Contents/SharedSupport/bin" $PATH
 
