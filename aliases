@@ -4,15 +4,14 @@
 # global bash aliases
 alias ls='ls -G -h --color=auto'
 #alias ls='ls -h --color=auto --group-directories-first'
-# alias ll='ls -l'
+alias ll='ls -l'
 alias lt='ls -alhrt | tail'
 # alias grepi='grep -i'
 alias diff='colordiff'
 alias malina='ssh pi@malina.local'    # ssh malina
-alias ack='ack -i'
 alias llt='ls -lhrt | tail'
 alias dush='du -sh * | sort -h'
-
+alias my-public-ip='curl ifconfig.me'
 
 # macos alias
 alias nc='netcat'
@@ -35,21 +34,21 @@ alias gcm='git commit -m'
 alias gco='git checkout'
 
 # docker alias
-alias d docker
+alias d=docker
 
 # macos docker desktop aliases
 alias docker-start='open --background -a Docker'
 alias docker-stop="osascript -e 'quit app \"Docker\"'"
 
 # kubectl aliases
-alias k kubectl
-alias kdr 'kubectl --dry-run=client -o yaml'
-alias kcuc 'kubectl config current-context'
-alias kcsc 'k config set-context'
-alias kge 'kubectl get'
-alias kds 'kubectl describe'
-alias kl 'kubectl logs'
-alias kexe 'kubectl exec -it'
+alias k=kubectl
+alias kdr='kubectl --dry-run=client -o yaml'
+alias kcuc='kubectl config current-context'
+alias kcsc='k config set-context'
+alias kge='kubectl get'
+alias kds='kubectl describe'
+alias kl='kubectl logs'
+alias kexe='kubectl exec -it'
 alias kbb='kubectl run busybox-test --image=busybox -it --rm --restart=Never --'
 
 
