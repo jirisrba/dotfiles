@@ -26,6 +26,14 @@ Host runner
   user srba
 
 # golemio
+Host rabin-front
+  HostName 10.228.1.81
+  user srba
+
+Host rabin-back
+  HostName 10.228.1.82
+  user srba
+
 Host golem-front
   HostName 10.228.0.101
   user srba
