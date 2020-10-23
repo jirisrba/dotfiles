@@ -3,8 +3,10 @@
 Host gitlab
   HostName gitlab.oict.cz
   User srba
-#   Preferredauthentications publickey
-#   IdentityFile ~/.ssh/id_ed25519
+
+Host runner
+  HostName 10.200.0.45
+  user srba
 
 # oict
 Host swarm-dev
@@ -20,10 +22,6 @@ Host swarm-prod
 Host swarm-mos
   HostName 10.200.0.53
   User srba
-
-Host runner
-  HostName 10.200.0.45
-  user srba
 
 # golemio
 Host rabin-front

@@ -49,6 +49,7 @@ alias kge='kubectl get'
 alias kds='kubectl describe'
 alias kl='kubectl logs'
 alias kexe='kubectl exec -it'
+alias kd='kubectl delete'
 alias kbb='kubectl run busybox-test --image=busybox -it --rm --restart=Never --'
 
 
