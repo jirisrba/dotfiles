@@ -35,6 +35,8 @@ alias gco='git checkout'
 
 # docker alias
 alias d=docker
+# alias drun='docker run -it --rm --name'
+# alias dexe='docker exec -it'
 
 # macos docker desktop aliases
 alias docker-start='open --background -a Docker'
