@@ -1,3 +1,3 @@
 function dexe
-  docker exec -it $argv[1]
+  docker exec -it $argv
 end
