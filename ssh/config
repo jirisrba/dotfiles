@@ -25,6 +25,10 @@ Host runner
   HostName 10.200.0.45
   user srba
 
+Host oict-reverseproxy
+  HostName 10.200.0.46
+  user srba
+
 # golemio dev
 # rabin.golemio.cz
 Host rabin-front
