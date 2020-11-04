@@ -11,5 +11,4 @@ function vpn
   # cisco anyconnect connect to vpn
   echo "vpn_server: $vpn_server"
   sudo openconnect-keychain --user=$username --authgroup=$group $vpn_server
-  /sbin/ifconfig utun1 | grep "inet "
 end
