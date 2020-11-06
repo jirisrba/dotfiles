@@ -1,12 +1,13 @@
 # ssh config
 
+# oict
+# gitlab.oict.cz OICT-SW-GITLAB-LC
 Host gitlab
-  HostName gitlab.oict.cz
+  HostName 10.200.0.50
   User srba
 #   Preferredauthentications publickey
 #   IdentityFile ~/.ssh/id_ed25519
 
-# oict
 Host swarm-dev
   HostName 78.128.211.212
   User srba
