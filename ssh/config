@@ -51,13 +51,13 @@ Host rabin-monitor
 
 # golemio prod
 Host golem-front
-  HostName 10.228.0.101
+  HostName 10.228.0.111
   user srba
 
 Host golem-back
-  HostName 10.228.0.103
+  HostName 10.228.0.113
   user srba
 
 Host golem-monitor
-  HostName 10.228.0.102
+  HostName 10.228.0.112
   user srba
