@@ -21,17 +21,18 @@ alias err="log show --predicate 'messageType == error' --style syslog --info --l
 
 # git alias
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
+alias g='git'
 alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gst='git status'
 alias gb="git branch"
 alias gba="git branch -a"
+alias gd="git diff"
 alias gpl='git pull --all'
 alias gup='git pull --rebase'
 alias gp='git push'
 alias ga='git add -A'
 alias gac="git add -A && git commit -m"
 alias gcm='git commit -m'
-alias gco='git checkout'
 
 # docker alias
 alias d=docker
