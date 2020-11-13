@@ -1,3 +1,3 @@
 function kl
-  kubectl logs $argv --tail 20
+  kubectl logs $argv --tail 100
 end
