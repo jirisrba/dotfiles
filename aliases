@@ -54,7 +54,8 @@ alias kds='kubectl describe'
 # alias kl='kubectl logs'
 alias kexe='kubectl exec -it'
 alias kd='kubectl delete'
-alias kbb='kubectl run busybox-test --image=radial/busyboxplus:curl -it --rm --restart=Never --'
+alias kbb='kubectl run -i --tty busybox --image=busybox --restart=Never -- sh'
+alias kbbc='kubectl run busybox-test --image=radial/busyboxplus:curl -it --rm --restart=Never --'
 
 
 # CSAS aliases - postupne zrusit ?
