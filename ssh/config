@@ -61,3 +61,7 @@ Host golem-back
 Host golem-monitor
   HostName 10.228.0.112
   user srba
+
+Host proxy-magistrat
+  HostName proxy-magistrat.westeurope.cloudapp.azure.com
+  user admproxy
