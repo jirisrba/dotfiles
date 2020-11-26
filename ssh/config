@@ -1,4 +1,6 @@
 # ssh config
+Host *
+  StrictHostKeyChecking no
 
 # oict
 # gitlab.oict.cz OICT-SW-GITLAB-LC
