@@ -2,6 +2,11 @@
 Host *
   StrictHostKeyChecking no
 
+# hasio
+Host hassio
+  HostName root@hassio.local
+  User root
+
 # oict
 # gitlab.oict.cz OICT-SW-GITLAB-LC
 Host gitlab
