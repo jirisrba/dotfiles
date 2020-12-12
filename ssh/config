@@ -70,5 +70,5 @@ Host golem-monitor
   user srba
 
 Host proxy-magistrat
-  HostName proxy-magistrat.westeurope.cloudapp.azure.com
+  HostName vm-proxy-gandalf.westeurope.cloudapp.azure.com
   user admproxy
