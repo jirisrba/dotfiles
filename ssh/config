@@ -69,6 +69,10 @@ Host golem-monitor
   HostName 10.228.0.112
   user srba
 
-Host proxy-magistrat
+Host gandalf
   HostName vm-proxy-gandalf.westeurope.cloudapp.azure.com
+  user admproxy
+
+Host sauron
+  HostName vm-proxy-sauron.westeurope.cloudapp.azure.com
   user admproxy
