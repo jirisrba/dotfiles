@@ -32,6 +32,7 @@ alias gup='git pull --rebase'
 alias gp='git push'
 alias ga='git add -A'
 alias gac="git add -A && git commit -m"
+alias gcf="git add -A && git commit --fixup=HEAD"
 alias gcm='git commit -m'
 
 # docker alias
