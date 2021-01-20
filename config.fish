@@ -1,7 +1,7 @@
 # fish ENV
 
 # PATH bash scripts
-set -gx PATH $HOME/code/bash /usr/local/bin $PATH
+set -gx PATH $HOME/code/bash /opt/homebrew/bin /usr/local/bin $PATH
 
 # # vscode SQLcl psql
 set -gx PATH "/Applications/oracle/sqlcl/bin" $PATH
@@ -49,3 +49,6 @@ set -gx SQLPATH "$HOME/SQL"
 # GO
 set --universal -x GOPATH $HOME/go
 set --universal -x PATH $PATH /usr/local/go/bin $GOPATH/bin
+
+# starship
+/opt/homebrew/Cellar/starship/0.48.0/bin/starship init fish | source
