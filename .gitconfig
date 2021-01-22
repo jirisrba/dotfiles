@@ -1,18 +1,20 @@
 [user]
 	name = Jiri Srba
-	email = jsrba@csas.cz
+	email = jiri.srba@gmail.com
 [core]
-	editor = subl -n -w
+	editor = '/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code' -w
 	autocrlf = input
 	safecrlf = false
-  excludesfile = C:\\Users\\sol60210\\.gitignore_global
-[mergetool "sublime"]
-  cmd = subl -w $MERGED
-  trustExitCode = false
 [merge]
-  tool = sublime
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [apply]
-  whitespace = nowarn
+	whitespace = nowarn
 [color]
 	ui = auto
     branch = auto
@@ -35,3 +37,7 @@
 	default = simple
 [credential]
 	helper = osxkeychain
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
