@@ -25,6 +25,8 @@ alias g='git'
 alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gst='git status'
 alias gb="git branch"
+alias gb="git branch"
+alias gsw="git switch"
 alias gba="git branch -a"
 alias gd="git diff"
 alias gpl='git pull --all'

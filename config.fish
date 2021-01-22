@@ -1,26 +1,20 @@
 # fish ENV
 
 # PATH bash scripts
-set -gx PATH $HOME/code/bash /opt/homebrew/bin /usr/local/bin $PATH
+set -gx PATH /opt/homebrew/opt/coreutils/libexec/gnubin $HOME/code/bash /opt/homebrew/bin /usr/local/bin $PATH
 
 # # vscode SQLcl psql
-set -gx PATH "/Applications/oracle/sqlcl/bin" $PATH
 set -gx PATH "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" $PATH
-# set -gx PATH "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin" $PATH
 set -gx PATH /usr/local/opt/libpq/bin /usr/local/opt/libpq/bin $PATH
-set -gx PATH "/Applications/Sublime Text.app/Contents/SharedSupport/bin" $PATH
 
 # EDITOR
 set -gx EDITOR "code -w"
 
-# gnu getopt
-set -gx PATH /usr/local/opt/gnu-getopt/bin $PATH
-
-# Coreutils bin and man folders
-set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
+# coreutils getopt
+set -gx PATH /opt/homebrew/opt/grep/libexec/gnubin /opt/homebrew/opt/gnu-getopt/bin $PATH
 
 # Findutils bin and man folders
-set -x -g PATH /usr/local/opt/findutils/libexec/gnubin $PATH
+set -x -g PATH /opt/homebrew/opt/coreutils/libexec/gnubin /opt/homebrew/opt/findutils/libexec/gnubin $PATH
 
 set -g -x LANG "en_US.UTF-8"
 set -g -x LC_ALL "en_US.UTF-8"
