@@ -29,20 +29,9 @@ set -gx ANSIBLE_NOCOWS 1
 # MacOS Java Home
 # set -gx JAVA_HOME $(/usr/libexec/java_home)
 
-# Oracle instant client x64
-set -gx ORACLE_BASE "$HOME/Applications/instantclient_19_3"
-set -gx ORACLE_HOME "$ORACLE_BASE"
-set -gx PATH $ORACLE_HOME $PATH
-set -gx DYLD_LIBRARY_PATH $DYLD_LIBRARY_PATH $ORACLE_HOME
-
-# Oracle SQLcl
-set -gx SQLCL "/Applications/oracle/sqlcl/bin/sql"
-set -gx TNS_ADMIN "$HOME/oracle"
-set -gx SQLPATH "$HOME/SQL"
-# SQLcl
 # GO
 set --universal -x GOPATH $HOME/go
 set --universal -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 
 # starship
-/opt/homebrew/Cellar/starship/0.48.0/bin/starship init fish | source
+starship init fish | source
