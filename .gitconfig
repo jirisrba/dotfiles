@@ -1,10 +1,11 @@
 [user]
 	name = Jiri Srba
-	email = jiri.srba@gmail.com
+	email = srba.jiri@operatorict.cz
 [core]
-	editor = '/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code' -w
+	editor = code -w
 	autocrlf = input
 	safecrlf = false
+	excludesFile = ~/.gitignore_global
 [merge]
     tool = vscode
 [mergetool "vscode"]
@@ -41,3 +42,5 @@
 	defaultBranch = main
 [fetch]
 	prune = true
+[rebase]
+	autosquash = true
