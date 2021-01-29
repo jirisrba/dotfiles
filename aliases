@@ -31,10 +31,10 @@ alias gba="git branch -a"
 alias gd="git diff"
 alias gpl='git pull --all'
 alias gup='git pull --rebase'
-alias gp='git push'
+alias gp='git push --follow-tags'
 alias ga='git add -A'
 alias gac="git add -A && git commit -m"
-alias gcf="git add -A && git commit --fixup=HEAD"
+alias gcf="git add -A && git commit --fixup=HEAD && git push"
 alias gcm='git commit -m'
 
 # docker alias
@@ -51,25 +51,12 @@ alias k=kubectl
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kcuc='kubectl config current-context'
 alias kg='kubectl get'
-alias kge='kubectl get'
 alias kgp='kubectl get pods'
 alias kgev='kubectl get events --sort-by='\''{.lastTimestamp}'\'
 alias kds='kubectl describe'
 alias kl='kubectl logs --tail 100'
 alias kexe='kubectl exec -it'
+alias ka='kubectl apply'
 alias kd='kubectl delete'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
 alias kbbc='kubectl run busybox-test --image=radial/busyboxplus:curl -it --rm --restart=Never --'
-
-
-# CSAS aliases - postupne zrusit ?
-# alias ki='kinit --keychain sol60210@CEN.CSIN.CZ && klist'
-# alias sql='/Applications/oracle/sqlcl/bin/sql'
-# alias ss='ssh -l sol60210'
-# alias so='ssh -l oracle -i ~/.ssh/id_rsa.sol60210@oem'
-# alias som='ssh -l oracle -i ~/.ssh/id_rsa.oracle oem12-m.vs.csin.cz'
-# alias sp='ssh -l postgres -i ~/.ssh/id_rsa.oracle'
-# alias scpo='scp -i ~/.ssh/id_rsa.oracle -C'
-
-# alias rsync-ansible='rsync -Ccazv --exclude='inventory/hosts' --exclude=.DS_Store --exclude=.git -e "ssh -i ~/.ssh/id_rsa.oracle" ~/Scratch/ansible/ oracle@oem12-m.vs.csin.cz:/dba/local/ansible_dev/'
-# alias rsync-clone='rsync -Ccazv --exclude=.DS_Store --exclude=.git --exclude=venv -e "ssh -i ~/.ssh/id_rsa.oracle"  ~/Scratch/clone/ oracle@toem-m.vs.csin.cz:/dba/clone/'
