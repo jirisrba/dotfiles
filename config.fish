@@ -5,7 +5,7 @@ set -gx PATH /opt/homebrew/opt/coreutils/libexec/gnubin $HOME/code/bash /opt/hom
 
 # # vscode SQLcl psql
 set -gx PATH "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" $PATH
-set -gx PATH /usr/local/opt/libpq/bin /usr/local/opt/libpq/bin $PATH
+set -gx PATH /usr/local/opt/libpq/bin $PATH
 
 # EDITOR
 set -gx EDITOR "code -w"
