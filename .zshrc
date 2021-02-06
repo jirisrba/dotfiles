@@ -1,16 +1,11 @@
-# brew bash completition
-## if [ -f $(brew --prefix)/etc/bash_completion ]; then
-##   . $(brew --prefix)/etc/bash_completion
-## fi
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=""
-# ZSH_THEME="robbyrussell"
-# ZSH_THEME="powerlevel9k/powerlevel9k"
-# ZSH_THEME="agnoster"
+ZSH_THEME="dracula"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -65,30 +60,37 @@ ZSH_THEME=""
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  brew
   docker
   git
+  kubectl
   osx
-  brew
-  vscode
-  sublime
   python
+  vscode
   z
-  zsh-syntax-highlighting
   zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
 
+# source .zshenv
+source $HOME/.zshenv
+
 # aliases
-source $HOME/.aliases
+source $HOME/dotfiles/aliases
 
 # functions
-source $HOME/.functions
+source $HOME/dotfiles/functions.bash
 
-# pure prompt
-autoload -U promptinit && promptinit
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
+# iterm2
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 # eval "$(stack --bash-completion-script stack)"
 
-prompt pure
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+# starship
+eval "$(starship init zsh)"
+
+# zsh-syntax-highlighting
+source /Users/jirisrba/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
