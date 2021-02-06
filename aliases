@@ -3,10 +3,8 @@
 
 # global bash aliases
 alias ls='ls -G -h --color=auto'
-#alias ls='ls -h --color=auto --group-directories-first'
 alias ll='ls -l'
 alias lt='ls -alhrt | tail'
-# alias grepi='grep -i'
 alias diff='colordiff'
 alias malina='ssh pi@malina.local'    # ssh malina
 alias llt='ls -lhrt | tail'
@@ -24,7 +22,6 @@ alias err="log show --predicate 'messageType == error' --style syslog --info --l
 alias g='git'
 alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gst='git status'
-alias gb="git branch"
 alias gb="git branch"
 alias gsw="git switch"
 alias gba="git branch -a"
@@ -49,14 +46,13 @@ alias docker-stop="osascript -e 'quit app \"Docker\"'"
 # kubectl aliases
 alias k=kubectl
 alias kdr='kubectl --dry-run=client -o yaml'
-alias kcuc='kubectl config current-context'
 alias kg='kubectl get'
 alias kgp='kubectl get pods'
+alias kgir='kubectl get ingressroute'
 alias kgev='kubectl get events --sort-by='\''{.lastTimestamp}'\'
 alias kds='kubectl describe'
 alias kl='kubectl logs --tail 100'
 alias kexe='kubectl exec -it'
 alias ka='kubectl apply'
-alias kd='kubectl delete'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
 alias kbbc='kubectl run busybox-test --image=radial/busyboxplus:curl -it --rm --restart=Never --'

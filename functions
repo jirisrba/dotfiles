@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+# simple calc
+function =
+{
+  echo "$@" | bc -l
+}
+
+# man color pages
+function man() {
+    env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;38;5;74m") \
+    LESS_TERMCAP_so=$(printf "\e[38;5;246m") \
+    LESS_TERMCAP_us=$(printf "\e[04;38;5;146m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    man "$@"
+}
+
+function gwip() {
+  git status
+  git add -A
+  git rm (git ls-files --deleted) ^/dev/null
+  git commit --no-verify -m "--wip--"
+  git pull
+  git push --all
+}
+
+# change directory to the current Finder directory
+# replace by plugin osx
+# function cdf() {
+#     target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+#     if [ "$target" != "" ]; then
+#         cd "$target"; pwd
+#     else
+#         echo 'No Finder window found' >&2
+#     fi
+# }
+
+# MacOS update
+function update() {
+    #local gisty="gisty pull_all; gisty sync_delete"
+    echo mackup backup -f
+    mackup backup -f
+    echo brew upgrade
+    brew update \
+      && brew upgrade \
+      && brew cleanup
+    echo tldr --update
+    tldr --update
+    echo softwareupdate
+    sudo -H softwareupdate -i -a
+    # gem update -n /usr/local/bin --system
+    pip3 install --upgrade pip setuptools wheel
+    pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U
+    echo npm update
+    npm install npm -g && npm update -g
+    #echo gem update
+    #sudo gem update --system -n /usr/local/bin/gem && \
+    #  sudo -H gem update -n /usr/local/bin && \
+    #  sudo -H gem cleanup
+}
