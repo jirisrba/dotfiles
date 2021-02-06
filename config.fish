@@ -35,4 +35,3 @@ set --universal -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 
 # starship
 starship init fish | source
-yaml
