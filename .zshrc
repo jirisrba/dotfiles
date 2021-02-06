@@ -80,7 +80,7 @@ source $HOME/.zshenv
 source $HOME/dotfiles/aliases
 
 # functions
-source $HOME/dotfiles/functions.bash
+source $HOME/dotfiles/functions
 
 # iterm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
