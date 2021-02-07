@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # bash scripts
-export PATH=$HOME/code/bash:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # vscode
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
