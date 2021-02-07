@@ -1,5 +1,7 @@
 # .gitignore_global
 
+.env
+
 # Mac OS generated files
 # OS generated files #
 ######################

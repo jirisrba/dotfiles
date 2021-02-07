@@ -60,15 +60,22 @@ ZSH_THEME="dracula"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  ansible
+  autojump
   brew
   docker
+  dotenv
   git
+  helm
   kubectl
   osx
   python
   vscode
+  vscode
   z
   zsh-autosuggestions
+  zsh-completions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -80,7 +87,10 @@ source $HOME/.zshenv
 source $HOME/dotfiles/aliases
 
 # functions
-source $HOME/dotfiles/functions
+source $HOME/dotfiles/
+
+# zsh-completions
+autoload -U compinit && compinit
 
 # iterm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -93,4 +103,4 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 eval "$(starship init zsh)"
 
 # zsh-syntax-highlighting
-source /Users/jirisrba/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
