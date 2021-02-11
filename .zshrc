@@ -60,8 +60,11 @@ ZSH_THEME="dracula"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  git-flow-completion
+  k
   ansible
   autojump
+  colored-man-pages
   brew
   docker
   dotenv
