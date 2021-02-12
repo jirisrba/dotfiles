@@ -90,7 +90,7 @@ source $HOME/.zshenv
 source $HOME/dotfiles/aliases
 
 # functions
-source $HOME/dotfiles/
+source $HOME/dotfiles/functions
 
 # zsh-completions
 autoload -U compinit && compinit
