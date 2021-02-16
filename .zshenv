@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# bash scripts
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+# MacOS brew path
+# Ensure user-installed binaries take precedence
+# brew_coreutils=$(brew --prefix coreutils)
+brew_coreutils="/opt/homebrew/opt/coreutils"
+export PATH="${brew_coreutils}/libexec/gnubin:${brew_coreutils}/gnu-getopt/bin:$PATH"
+# export MANPATH="${brew_coreutils}/libexec/gnuman:$MANPATH"
 
 # vscode
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
@@ -9,12 +13,8 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 # postgres
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
-# MacOS brew path
-# Ensure user-installed binaries take precedence
-# brew_coreutils=$(brew --prefix coreutils)
-brew_coreutils="/opt/homebrew/opt/coreutils"
-export PATH="${brew_coreutils}/libexec/gnubin:${brew_coreutils}/gnu-getopt/bin:$PATH"
-# export MANPATH="${brew_coreutils}/libexec/gnuman:$MANPATH"
+# local bash scripts
+export PATH=$HOME/bin:$PATH
 
 # You may need to manually set your language environment
 export LANG="en_US.UTF-8"
