@@ -14,9 +14,17 @@ Host hassio
 Host gitlab
   HostName 10.200.0.50
   User srba
-#   Preferredauthentications publickey
-#   IdentityFile ~/.ssh/id_ed25519
 
+Host gitlab-runner
+  HostName 10.200.0.45
+  user srba
+
+Host oict-reverseproxy
+  HostName 10.200.0.46
+  user srba
+
+
+# docker swarm
 Host swarm-dev
   HostName 78.128.211.212
   User srba
@@ -31,13 +39,6 @@ Host swarm-mos
   HostName 10.200.0.53
   User srba
 
-Host runner
-  HostName 10.200.0.45
-  user srba
-
-Host oict-reverseproxy
-  HostName 10.200.0.46
-  user srba
 
 # golemio dev
 # rabin.golemio.cz
@@ -71,6 +72,8 @@ Host golem-monitor
   HostName 10.228.0.112
   user srba
 
+
+# azure
 Host gandalf
   HostName vm-proxy-gandalf.westeurope.cloudapp.azure.com
   user admproxy
