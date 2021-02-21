@@ -2,19 +2,21 @@
 
 # MacOS brew path
 # Ensure user-installed binaries take precedence
-# brew_coreutils=$(brew --prefix coreutils)
-brew_coreutils="/opt/homebrew/opt/coreutils"
-export PATH="${brew_coreutils}/libexec/gnubin:${brew_coreutils}/gnu-getopt/bin:$PATH"
-# export MANPATH="${brew_coreutils}/libexec/gnuman:$MANPATH"
+PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
+# MANPATH="${brew_coreutils}/libexec/gnuman:$MANPATH"
+
+# GNU
+PATH="${HOMEBREW_PREFIX}/opt/gnu-getopt/bin:$PATH"
+PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # vscode
-export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 # postgres
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+PATH="/usr/local/opt/libpq/bin:$PATH"
 
-# local bash scripts
-export PATH=$HOME/bin:$PATH
+# local bash scripts $HOME/bin
+PATH=$HOME/bin:$PATH
 
 # You may need to manually set your language environment
 export LANG="en_US.UTF-8"
@@ -36,7 +38,6 @@ fi
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # MacOS ansible
-export ANSIBLE_INVENTORY=inventory/hosts
 export ANSIBLE_NOCOWS=1
 
 # MacOS Java Home
