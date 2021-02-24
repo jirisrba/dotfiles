@@ -16,23 +16,18 @@ alias nc='netcat'
 alias killvscode='pkill -KILL Electron'
 alias err="log show --predicate 'messageType == error' --style syslog --info --last 1m | cut -c 1-22,43-999"
 
+# vscode
+alias vs='code'
 
 # git alias
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
 alias g='git'
 alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gst='git status'
-alias gb="git branch"
-alias gsw="git switch"
-alias gba="git branch -a"
-alias gd="git diff"
 alias gpl='git pull --all'
-alias gup='git pull --rebase'
 alias gp='git push --follow-tags'
 alias ga='git add -A'
 alias gac="git add -A && git commit -m"
 alias gcf="git add -A && git commit --fixup=HEAD && git push"
-alias gcm='git commit -m'
 
 # docker alias
 alias d=docker
