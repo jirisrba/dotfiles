@@ -10,6 +10,7 @@ alias malina='ssh pi@malina.local'    # ssh malina
 alias llt='ls -lhrt | tail'
 alias dush='du -sh * | sort -h'
 alias my-public-ip='curl ifconfig.me'
+alias w='curl "wttr.in/Prague?1"'
 
 # macos alias
 alias nc='netcat'
