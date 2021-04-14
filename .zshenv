@@ -37,6 +37,9 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# docker
+export DOCKER_BUILDKIT=1
+
 # MacOS ansible
 export ANSIBLE_NOCOWS=1
 
