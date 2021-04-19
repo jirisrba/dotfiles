@@ -18,6 +18,7 @@
 
   // If enabled, selections are automatically copied to your clipboard.
   "copyOnSelect": true,
+  "multiLinePasteWarning": false,
 
   // If enabled, formatted data is also copied to your clipboard
   "copyFormatting": false,
