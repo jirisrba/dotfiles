@@ -9,6 +9,9 @@ PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
 PATH="${HOMEBREW_PREFIX}/opt/gnu-getopt/bin:$PATH"
 PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
 
+# ubuntu snap
+PATH="/snap/bin:$PATH"
+
 # vscode
 PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
