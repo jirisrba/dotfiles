@@ -1,5 +1,5 @@
 #NoEnv
-; #Warn  ; Enable warnings to assist with detecting common errors.
+#Warn  ; Enable warnings to assist with detecting common errors.
 #SingleInstance force
 SendMode Input
 DetectHiddenWindows, on
@@ -10,31 +10,18 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ScratchDir = C:\Users\op3346\scratch
 
 ; Text Expander = Autohotkey hotstrings
-; Oracle
-::$O::$ORACLE_HOME
-:`t:. o::. oraenv
-:`t:. oa::. oraenv <<< $(awk -F: '$1 ~ /\+ASM/ {print $1}' /etc/oratab)
-:`t:spv::show parameter
-:`t:rt/::rman target=/
-:`t:cpfs::create pfile='$PWD/init@.ora' from spfile;
-::cdl::cd /var/log/dba
-
-; SQL command
-:`t:ssf::select * from
-:`t:scf::select count(*) from
 
 ::llt::ls -ltr | tail
 ::dush::du -sh * | sort -h | tail
-#Hotstring r c   ; send raw and case sensitive
-::nfm::{noformat}`n
+:`t:-ot::-o table
 
 ; email
+::sjopict::srba.jiri@operatorict.cz
 :o:dd,::Dobrý den,`n`n
-::dj::díky, JS
+:`t:dj::di­ky, JS
 ::sp,::S pozdravem,`n`nJiří Srba
 ::ht,::hotovo,`n`nJS`n`n
 ::ddh,::Dobrý den,`n`nhotovo,`n`nS pozdravem,`n`nJiří Srba
-::ework::jsrba@csas.cz
 
 
 ; Windows and Q closes active window
@@ -45,7 +32,6 @@ return
 
 ; Caps Lock acts as Shift
 Capslock::Shift
-return
 
 ; printscreen
 PrintScreen::Run, "%windir%\system32\SnippingTool.exe"
@@ -87,6 +73,19 @@ return
     else
         Run, wt.exe
 Return
+
+; Oracle
+::$O::$ORACLE_HOME
+:`t:. o::. oraenv
+:`t:. oa::. oraenv <<< $(awk -F: '$1 ~ /\+ASM/ {print $1}' /etc/oratab)
+:`t:spv::show parameter
+:`t:rt/::rman target=/
+:`t:cpfs::create pfile='$PWD/init@.ora' from spfile;
+::cdl::cd /var/log/dba
+
+; SQL command
+:`t:ssf::select * from
+:`t:scf::select count(*) from
 
 ;-------------------------------------------------------------------;
 ; WindowsKey+Shift+Up / WindowsKey+Shift+Down
