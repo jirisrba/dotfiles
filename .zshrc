@@ -101,15 +101,15 @@ autoload -U compinit && compinit
 # iterm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# autojump
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # eval "$(stack --bash-completion-script stack)"
 
 complete -o nospace -C /usr/local/bin/terraform terraform
 
 # starship
 eval "$(starship init zsh)"
-
-# zsh-syntax-highlighting
-# source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
