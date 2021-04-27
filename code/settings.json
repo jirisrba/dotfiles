@@ -1,0 +1,130 @@
+{
+    "workbench.colorTheme": "Dracula Soft",
+    "editor.minimap.enabled": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    "editor.rulers": [
+
+        {
+            "column": 80,
+            "color": "#6272a4"
+        },
+        {
+            "column": 120,
+            "color": "#6284a4"
+        }
+    ],
+
+    //iTerm2 terminal
+    "terminal.integrated.fontFamily": "Fira Code",
+
+    // only for python language files
+    "[python]": {
+        "editor.rulers": [
+            79,
+            120
+        ],
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+        },
+    "git.enableSmartCommit": true,
+    "files.associations": {
+        "*.yml": "yaml",
+        "*.txt": "markdown",
+        "*.yaml": "yaml"
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        ".vscode": true,
+        "**/__pycache__": true,
+        "**/**/*.pyc": true
+    },
+    "files.insertFinalNewline": true,
+    "files.autoSave": "onFocusChange",
+    "git.confirmSync": false,
+
+    // pythonVSCode extension
+    "python.linting.lintOnSave": true,
+    "python.pythonPath": "/usr/local/bin/python3",
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pycodestyleArgs": [
+        "--disable=E111"
+    ],
+    "python.linting.pylintArgs": [
+        "--disable=W0311"
+    ],
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfArgs": [
+        "--style",
+        "{based_on_style: chromium, indent_width: 2}"
+    ],
+
+    // Word-wrap markdown
+    "[markdown]": {
+        "editor.wordWrap": "on"
+    },
+
+    "workbench.iconTheme": "vscode-icons",
+    "git.autofetch": true,
+    "breadcrumbs.enabled": true,
+    "editor.tabSize": 2,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "git.postCommitCommand": "sync",
+    "C_Cpp.updateChannel": "Insiders",
+    "terminal.integrated.fontSize": 14,
+    "files.trimFinalNewlines": true,
+    "gitlens.mode.active": "review",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "editor.fontSize": 12,
+    "workbench.sideBar.location": "left",
+    "editor.columnSelection": false,
+    "terraform.languageServer": {
+        "external": true,
+        "args": [
+            "serve"
+        ]
+    },
+    "c-cpp-flylint.flexelint.enable": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.hotExit": "onExitAndWindowClose",
+    "remote.extensionKind": {
+        "ms-azuretools.vscode-docker": "workspace"
+    },
+    "markdown.preview.fontSize": 12,
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path.mac": "/Users/jirisrba/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.minikube-path.mac": "/Users/jirisrba/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vs-kubernetes.draft-path.mac": "/Users/jirisrba/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vscode-kubernetes.minikube-path.mac": "/Users/jirisrba/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "workbench.editor.decorations.colors": true,
+    "workbench.editor.decorations.badges": true,
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "azureResourceManagerTools.parameterFiles": {
+        "/Users/jirisrba/scratch/azure/Infrastructure/PP_Infrastructure/PP_Infrastructure_Global/ApplicationInsights/insights.json": "insights.parameters.test.json"
+    },
+    "dotnetAcquisitionExtension.existingDotnetPath": [
+        {
+            "extensionId": "msazurermtools.azurerm-vscode-tools",
+            "path": "/usr/local/share/dotnet/dotnet"
+        }
+    ],
+    "terminal.integrated.fontWeight": null
+
+}
