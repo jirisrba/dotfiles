@@ -76,6 +76,7 @@ plugins=(
   node
   npm
   osx
+  taskwarrior
   python
   vscode
   z
