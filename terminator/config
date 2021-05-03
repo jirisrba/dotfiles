@@ -6,7 +6,6 @@
   title_use_system_font = False
 [keybindings]
   close_term = <Primary>w
-  hide_window = F12
   new_tab = <Primary>t
 [layouts]
   [[default]]
