@@ -71,3 +71,7 @@ alias kexe='kubectl exec -it'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
 alias kbbc='kubectl run busybox-test --image=radial/busyboxplus:curl -it --rm --restart=Never --'
+
+# azure subscription
+alias az-pp-dev="az account set --subscription 'Portal Prazana Dev/Test'"
+alias az-pp-prod="az account set --subscription 'Portal Prazana Prod'"
