@@ -60,6 +60,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  alias-finder
   ansible
   autojump
   brew
@@ -71,13 +72,14 @@ plugins=(
   dotenv
   git
   helm
+  history-substring-search
   k
   kubectl
   node
   npm
   osx
-  taskwarrior
   python
+  taskwarrior
   vscode
   z
   zsh-autosuggestions
