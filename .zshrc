@@ -67,6 +67,8 @@ plugins=(
   colored-man-pages
   colorize
   common-aliases
+  copydir
+  copyfile
   cp
   docker
   dotenv

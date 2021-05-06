@@ -1,17 +1,23 @@
 [user]
 	name = Jiri Srba
 	email = srba.jiri@operatorict.cz
+
 [core]
 	editor = code -w
 	autocrlf = input
 	safecrlf = false
 	excludesFile = ~/.gitignore_global
+    pager = delta
+
 [merge]
     tool = vscode
+
 [mergetool "vscode"]
     cmd = code --wait $MERGED
+
 [diff]
     tool = vscode
+
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
 [apply]
@@ -44,3 +50,10 @@
 	prune = true
 [rebase]
 	autosquash = true
+
+[delta]
+    syntax-theme = Dracula
+    plus-style = bold syntax "#002800"
+
+[interactive]
+    diffFilter = delta --color-only
