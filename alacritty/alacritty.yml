@@ -94,7 +94,7 @@ scrolling:
   history: 10000
 
   # Scrolling distance multiplier.
-  #multiplier: 3
+  multiplier: 3
 
 # Font configuration
 font:
@@ -767,7 +767,8 @@ key_bindings:
   # Alt Command key
   ## https://github.com/jwilm/alacritty/issues/93#issuecomment-427592040
   - { key: D, mods: Alt, chars: "\x1bd" } # delete word
-  - { key: Back, mods: Command|Control, chars: "\x15" } # delete line
+  - { key: Back, mods: Command, chars: "\x15" } # delete line
+  - { key: Back, mods: Control, chars: "\x15" } # delete line
 
   - { key: Left, mods: Alt, chars: "\x1bb" }
   - { key: Right, mods: Alt, chars: "\x1bf" }
