@@ -1,6 +1,5 @@
 {
     "workbench.colorTheme": "Dracula Soft",
-    "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "editor.formatOnPaste": true,
@@ -76,10 +75,8 @@
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "git.postCommitCommand": "sync",
-    "C_Cpp.updateChannel": "Insiders",
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontSize": 13,
     "files.trimFinalNewlines": true,
-    "gitlens.mode.active": "review",
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
@@ -116,15 +113,23 @@
             "filenamePattern": "*.ipynb"
         }
     ],
-    "azureResourceManagerTools.parameterFiles": {
-        "/Users/jirisrba/scratch/azure/Infrastructure/PP_Infrastructure/PP_Infrastructure_Global/ApplicationInsights/insights.json": "insights.parameters.test.json"
-    },
     "dotnetAcquisitionExtension.existingDotnetPath": [
         {
             "extensionId": "msazurermtools.azurerm-vscode-tools",
             "path": "/usr/local/share/dotnet/dotnet"
         }
     ],
-    "terminal.integrated.fontWeight": null
+    "editor.minimap.enabled": false,
+    "git.inputValidationSubjectLength": 72,
+    "window.title": "${activeEditorLong}${separator}${rootName}",
+    "workbench.editor.enablePreview": false,
+    "settingsSync.ignoredExtensions": [
 
+    ],
+    "workbench.startupEditor": "newUntitledFile",
+    "go.toolsManagement.autoUpdate": true,
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "editor.formatOnSave": true
 }
