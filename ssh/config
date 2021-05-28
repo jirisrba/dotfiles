@@ -39,23 +39,20 @@ Host swarm-mos
   HostName 10.200.0.53
   User srba
 
+# oict postgres
+Host psql01
+  HostName OICT-PSQL-P01.oict.cz
+  user srba
+
+  Host psql02
+  HostName OICT-PSQL-P02.oict.cz
+  user srba
+
 
 # golemio dev
 # rabin.golemio.cz
-Host rabin-front
-  HostName 10.228.1.91
-  user srba
-
 Host rabin-back
   HostName 10.228.1.92
-  user srba
-
-Host rabin-db
-  HostName 10.228.1.94
-  user srba
-
-Host rabin-monitor
-  HostName 10.228.1.93
   user srba
 
 
