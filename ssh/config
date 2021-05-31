@@ -44,7 +44,7 @@ Host psql01
   HostName OICT-PSQL-P01.oict.cz
   user srba
 
-  Host psql02
+Host psql02
   HostName OICT-PSQL-P02.oict.cz
   user srba
 
