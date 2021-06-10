@@ -78,3 +78,8 @@ Host gandalf
 Host sauron
   HostName vm-proxy-sauron.westeurope.cloudapp.azure.com
   user admproxy
+
+# wedos smartprague
+Host wedos-prod
+  HostName 37.157.197.166
+  user srba
