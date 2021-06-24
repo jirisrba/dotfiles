@@ -12,3 +12,6 @@ enable_log_file = no
 [defaults]
 location = westeurope
 
+[auto-upgrade]
+enable = yes
+
