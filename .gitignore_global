@@ -2,6 +2,7 @@
 
 # User-specific files
 ######################
+.env
 .env.local
 .env.development.local
 .env.test.local
