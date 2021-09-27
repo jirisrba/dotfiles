@@ -39,6 +39,11 @@ Host swarm-mos
   HostName 10.200.0.53
   User srba
 
+Host webapps-t01
+  HostName webapps-t01.oict.cz
+  User srba
+
+
 # oict postgres
 Host psql01
   HostName OICT-PSQL-P01.oict.cz
