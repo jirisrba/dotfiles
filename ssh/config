@@ -5,7 +5,7 @@ Host *
   LogLevel INFO
 
 # hasio
-Host hassio
+Host ha
   HostName root@hassio.local
   User root
 
@@ -51,6 +51,10 @@ Host psql01
 
 Host psql02
   HostName OICT-PSQL-P02.oict.cz
+  user srba
+
+Host ppd01
+  HostName OICT-PP-D01.oict.cz
   user srba
 
 
