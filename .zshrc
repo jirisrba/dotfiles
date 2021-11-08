@@ -79,7 +79,7 @@ plugins=(
   kubectl
   node
   npm
-  osx
+  macos
   python
   taskwarrior
   vscode
