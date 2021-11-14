@@ -60,7 +60,7 @@ alias docker-stop="osascript -e 'quit app \"Docker\"'"
 # kubectl aliases
 alias k=kubectl
 alias kg='kubectl get'
-alias kgpf='kubectl get pod --field-selector=status.phase!=Running'
+alias kgpf='kubectl get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
 alias kgir='kubectl get ingressroute'
 alias kgnp='kubectl get networkpolicy'
 alias kgnpa='kubectl get networkpolicy -A'
