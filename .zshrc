@@ -72,17 +72,18 @@ plugins=(
   cp
   docker
   dotenv
+  dirhistory
   git
   helm
   history-substring-search
   k
   kubectl
+  macos
   node
   npm
-  macos
   python
-  taskwarrior
   vscode
+  web-search
   z
   zsh-autosuggestions
   zsh-completions
