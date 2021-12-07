@@ -67,6 +67,7 @@ plugins=(
   colored-man-pages
   colorize
   common-aliases
+  copybuffer
   copydir
   copyfile
   cp
