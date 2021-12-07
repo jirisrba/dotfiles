@@ -10,8 +10,8 @@ PATH="${HOMEBREW_PREFIX}/opt/gnu-getopt/bin:$PATH"
 PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="${HOMEBREW_PREFIX}/opt/curl/bin:$PATH"
 
-# ubuntu snap
-PATH="/snap/bin:$PATH"
+# kubectl krew
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # vscode
 PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
