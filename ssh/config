@@ -9,6 +9,11 @@ Host ha
   HostName hassio.local
   User root
 
+# cloudtalk
+Host gw
+  HostName gw.cloudtalk.io
+  User jiri.srba
+
 # oict
 # gitlab.oict.cz OICT-SW-GITLAB-LC
 Host gitlab
@@ -64,20 +69,9 @@ Host rabin-back
   HostName 10.228.1.92
   user srba
 
-
-# golemio prod
-Host golem-front
-  HostName 10.228.0.111
-  user srba
-
 Host golem-back
   HostName 10.228.0.113
   user srba
-
-Host golem-monitor
-  HostName 10.228.0.112
-  user srba
-
 
 # azure
 Host gandalf
@@ -87,8 +81,3 @@ Host gandalf
 Host sauron
   HostName vm-proxy-sauron.westeurope.cloudapp.azure.com
   user admproxy
-
-# wedos smartprague
-Host wedos-prod
-  HostName 37.157.197.166
-  user srba

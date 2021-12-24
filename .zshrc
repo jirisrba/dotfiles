@@ -83,6 +83,7 @@ plugins=(
   node
   npm
   python
+  terraform
   vscode
   web-search
   z
