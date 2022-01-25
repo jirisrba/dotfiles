@@ -16,6 +16,9 @@ PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # vscode
 PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
+# AWS
+export AWS_SHARED_CREDENTIALS_FILE=/Users/jirisrba/.aws/credentials_mfa
+
 # postgres
 PATH="/usr/local/opt/libpq/bin:$PATH"
 

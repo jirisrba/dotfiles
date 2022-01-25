@@ -23,23 +23,15 @@ alias vpnx='scutil --nc stop "CloudTalk VPN"'
 # vscode
 alias vs='code'
 
-# taskwarrior
-alias t='task'
-alias tn='task next +READY'
-alias tnu="task next urgency \> ${urgencyPrio}"
-alias ta='task add'
-alias tan='task annotate'
-alias tl='task log'
-alias tac='task active'
-alias tap='task add project:Personal'
-alias taw='task add project:Work'
+# kubernetes updatecontext https://github.com/borisputerka/updatecontext
+# fzf inline alias
+alias _inline_fzf="fzf --multi --ansi -i -1 --height=50% --reverse -0 --header-lines=1 --inline-info --border"
 
-## timewarrior
-alias twst='timew start'
-alias twstop='timew stop'
-alias tws='timew summary :week'
-alias twlw='timew summary :lastweek'
-alias twd='timew summary :day'
+# kubernetes contexts switcher
+kcs() {
+    local context="$(kubectl config get-contexts | _inline_fzf | awk '{print $1}')"
+    eval kubectl config set current-context "${context}"
+}
 
 # git alias
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
@@ -52,13 +44,12 @@ alias gac="git add -A && git commit -m"
 alias gcf="git add -A && git commit --fixup=HEAD && git push"
 
 # docker alias
+alias docker='lima nerdctl'
 alias d=docker
-# alias drun='docker run -it --rm --name'
-# alias dexe='docker exec -it'
 
 # macos docker desktop aliases
-alias docker-start='open --background -a Docker'
-alias docker-stop="osascript -e 'quit app \"Docker\"'"
+# alias docker-start='open --background -a Docker'
+# alias docker-stop="osascript -e 'quit app \"Docker\"'"
 
 # kubectl aliases
 alias k=kubectl
