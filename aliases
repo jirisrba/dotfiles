@@ -16,9 +16,7 @@ alias w='curl "wttr.in/Prague?1"'
 # macos alias
 alias nc='netcat'
 alias err="log show --predicate 'messageType == error' --style syslog --info --last 1m | cut -c 1-22,43-999"
-alias vpn='scutil --nc start "CloudTalk VPN"'
 alias vpnx='scutil --nc stop "CloudTalk VPN"'
-
 
 # vscode
 alias vs='code'
@@ -47,10 +45,6 @@ alias gcf="git add -A && git commit --fixup=HEAD && git push"
 alias docker='lima nerdctl'
 alias d=docker
 
-# macos docker desktop aliases
-# alias docker-start='open --background -a Docker'
-# alias docker-stop="osascript -e 'quit app \"Docker\"'"
-
 # kubectl aliases
 alias k=kubectl
 alias kg='kubectl get'
@@ -66,6 +60,11 @@ alias kexe='kubectl exec -it'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
 alias kbbc='kubectl run busybox-test --image=radial/busyboxplus:curl -it --rm --restart=Never --'
+
+# AWS gossm
+# https://github.com/gjbae1212/gossm
+alias ssm-ssh='gossm ssh -i ~/.ssh/aws.pem'
+alias ssm-mfa='gossm mfa --deadline 43200'
 
 # azure subscription
 alias az-pp-dev="az account set --subscription 'Portal Prazana Dev/Test'"
