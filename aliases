@@ -39,7 +39,8 @@ alias gpl='git pull --all'
 alias gp='git push --follow-tags'
 alias ga='git add -A'
 alias gac="git add -A && git commit -m"
-alias gcf="git add -A && git commit --fixup=HEAD && git push"
+alias gcf="git add -A && git commit --fixup=HEAD"
+alias grbi='git rebase -i --autosquash'
 
 # docker alias
 alias docker='lima nerdctl'
