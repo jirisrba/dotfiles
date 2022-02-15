@@ -7,7 +7,7 @@ alias ll='ls -l'
 alias lt='ls -alhrt | tail'
 alias diff='colordiff'
 alias rgi='rg -i'
-alias malina='ssh pi@malina.local'    # ssh malina
+alias malina='ssh pi@malina.local' # ssh malina
 alias llt='ls -lhrt | tail'
 alias dush='du -sh * | sort -h'
 alias my-public-ip='curl ifconfig.me'
@@ -64,8 +64,8 @@ alias kbbc='kubectl run busybox-test --image=radial/busyboxplus:curl -it --rm --
 
 # AWS gossm
 # https://github.com/gjbae1212/gossm
-alias ssm-ssh='gossm ssh -i ~/.ssh/aws.pem'
-alias ssm-mfa='gossm mfa --deadline 43200'
+alias ssm='gossm ssh -i ~/.ssh/aws.pem'
+alias mfa='gossm mfa --deadline 43200'
 
 # azure subscription
 alias az-pp-dev="az account set --subscription 'Portal Prazana Dev/Test'"
