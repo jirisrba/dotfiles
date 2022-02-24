@@ -16,8 +16,8 @@ PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # vscode
 PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
-# AWS
-export AWS_SHARED_CREDENTIALS_FILE=/Users/jirisrba/.aws/credentials_mfa
+# AWS gossm mfa
+export AWS_SHARED_CREDENTIALS_FILE=/Users/jirisrba/.aws/credentials
 
 # terraform M1 workaround
 export GODEBUG=asyncpreemptoff=1
