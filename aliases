@@ -47,7 +47,7 @@ alias docker='lima nerdctl'
 alias d=docker
 
 # kubectl aliases
-alias k=kubectl
+alias k='kubectl'
 alias kg='kubectl get'
 alias kgpf='kubectl get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
 alias kgir='kubectl get ingressroute'
@@ -56,16 +56,18 @@ alias kgnpa='kubectl get networkpolicy -A'
 alias kgev='kubectl get events --sort-by='\''{.lastTimestamp}'\'
 alias kds='kubectl describe'
 alias kl='kubectl logs --tail 100'
-# keti - drop into an interactive terminal on a container
-alias kexe='kubectl exec -it'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
 alias kbbc='kubectl run busybox-test --image=radial/busyboxplus:curl -it --rm --restart=Never --'
 
+alias -g Oy="--output yaml"
+alias -g LL=' |& less'
+alias -g GG=' |& rg'
+
 # AWS gossm
 # https://github.com/gjbae1212/gossm
 alias ssm='gossm ssh -i ~/.ssh/aws.pem'
-alias mfa='gossm mfa --deadline 43200'
+alias mfa='awsmfa'
 
 # azure subscription
 alias az-pp-dev="az account set --subscription 'Portal Prazana Dev/Test'"
