@@ -1,3 +1,3 @@
 # dotfiles
 
-https://github.com/spencerwooo/dotfiles/tree/master/Windows
+https://github.com/jirisrba/dotfiles
