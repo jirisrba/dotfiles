@@ -42,6 +42,9 @@ alias gac="git add -A && git commit -m"
 alias gcf="git add -A && git commit --fixup=HEAD"
 alias grbi='git rebase -i --autosquash'
 
+# github
+alias ghpr='gh pr create --fill --reviewer mtmn,j05k0,filipprosovsky,SamuelHopko'
+
 # docker alias
 alias docker='lima nerdctl'
 alias d=docker
