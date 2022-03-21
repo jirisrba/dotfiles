@@ -68,7 +68,7 @@ plugins=(
   colorize
   common-aliases
   copybuffer
-  copydir
+  copypath
   copyfile
   cp
   docker
