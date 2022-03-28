@@ -1,0 +1,20 @@
+[profile default-before-mfa]
+region = eu-central-1
+output=text
+mfa_serial = arn:aws:iam::897285133359:mfa/jiri.srba
+
+[profile default]
+region = eu-central-1
+output=text
+
+[profile sandbox]
+source_profile = default
+role_arn = arn:aws:iam::472371866991:role/Administrator
+region = eu-central-1
+output = json
+
+[profile stage]
+source_profile = default
+role_arn = arn:aws:iam::603073877574:role/Administrator
+region = eu-central-1
+output = json
