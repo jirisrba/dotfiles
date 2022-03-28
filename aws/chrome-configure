@@ -1,0 +1,11 @@
+[sandbox]
+aws_account_id = 472371866991
+role_name = Administrator
+region=eu-central-1
+color=57af30
+
+[stage]
+aws_account_id = 603073877574
+role_name = Administrator
+region=eu-central-1
+color=ff2c37
