@@ -70,6 +70,7 @@ alias -g GG=' |& rg'
 # AWS gossm
 # https://github.com/gjbae1212/gossm
 alias ssm='gossm ssh -i ~/.ssh/aws.pem'
+alias ssm-stage='gossm ssh -i ~/.ssh/stage.pem'
 alias mfa='awsmfa'
 
 # azure subscription

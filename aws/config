@@ -1,11 +1,11 @@
 [profile default-before-mfa]
 region = eu-central-1
-output=text
+output=json
 mfa_serial = arn:aws:iam::897285133359:mfa/jiri.srba
 
 [profile default]
 region = eu-central-1
-output=text
+output=json
 
 [profile sandbox]
 source_profile = default
