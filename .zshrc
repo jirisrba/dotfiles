@@ -63,6 +63,7 @@ plugins=(
   alias-finder
   ansible
   autojump
+  aws
   brew
   colored-man-pages
   colorize
@@ -74,14 +75,14 @@ plugins=(
   docker
   dotenv
   dirhistory
+  fd
   git
   helm
   history-substring-search
+  isodate
   k
   kubectl
   macos
-  node
-  npm
   python
   terraform
   vscode
