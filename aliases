@@ -43,7 +43,7 @@ alias gcf="git add -A && git commit --fixup=HEAD"
 alias grbi='git rebase -i --autosquash'
 
 # github
-alias ghpr='gh pr create --fill --reviewer mtmn,j05k0,filipprosovsky,SamuelHopko'
+alias ghpr='gh pr create --fill --reviewer mtmn,j05k0,filipprosovsky,SamuelHopko,mgarces'
 
 # docker alias
 alias docker='lima nerdctl'
@@ -69,9 +69,9 @@ alias -g GG=' |& rg'
 
 # AWS gossm
 # https://github.com/gjbae1212/gossm
-alias ssm='gossm ssh -i ~/.ssh/aws.pem'
-alias ssm-stage='gossm ssh -i ~/.ssh/stage.pem'
-alias mfa='awsmfa'
+alias ssm='gossm start --profile default'
+alias ssm-stage='gossm start --profile stage'
+alias mfa='awsmfa --profile default'
 
 # azure subscription
 alias az-pp-dev="az account set --subscription 'Portal Prazana Dev/Test'"
