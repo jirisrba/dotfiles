@@ -7,9 +7,9 @@ mfa_serial = arn:aws:iam::897285133359:mfa/jiri.srba
 region = eu-central-1
 output=json
 
-[profile sandbox]
+[profile mgmt]
 source_profile = default
-role_arn = arn:aws:iam::472371866991:role/Administrator
+role_arn = arn:aws:iam::233281872604:role/Administrator
 region = eu-central-1
 output = json
 

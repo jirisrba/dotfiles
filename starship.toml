@@ -1,5 +1,18 @@
 # ~/.config/starship.toml
 
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = "bold blue"
+symbol = "🅰 "
+force_display = true
+
+[aws.region_aliases]
+us-east-1      = "use1"
+eu-central-1   = "euc1"
+ap-southeast-1 = "apse1"
+ap-southeast-2 = "apse2"
+
+
 [battery]
 full_symbol = "🔋"
 charging_symbol = "🔌"

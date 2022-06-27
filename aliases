@@ -43,7 +43,7 @@ alias gcf="git add -A && git commit --fixup=HEAD"
 alias grbi='git rebase -i --autosquash'
 
 # github
-alias ghpr='gh pr create --fill --reviewer mtmn,j05k0,filipprosovsky,SamuelHopko,mgarces'
+alias ghpr='gh pr create --fill --reviewer j05k0,filipprosovsky,SamuelHopko,mgarces'
 
 # docker alias
 alias docker='lima nerdctl'
@@ -61,7 +61,9 @@ alias kds='kubectl describe'
 alias kl='kubectl logs --tail 100'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
-alias kbbc='kubectl run busybox-test --image=radial/busyboxplus:curl -it --rm --restart=Never --'
+alias kbbc='kubectl run busybox-test --image=curlimages/curl -it --rm --restart=Never -- sh'
+
+alias kt='kubetail'
 
 alias -g Oy="--output yaml"
 alias -g LL=' |& less'
