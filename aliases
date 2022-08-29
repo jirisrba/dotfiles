@@ -3,8 +3,9 @@
 
 # global bash aliases
 alias ls='ls -G -h --color=auto'
-alias ll='ls -l'
-alias lt='ls -alhrt | tail'
+alias ll='exa -lbGF --git'
+alias llt='exa -lbGd --git --sort=modified'
+alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
 alias diff='colordiff'
 alias rgi='rg -i'
 alias malina='ssh pi@malina.local' # ssh malina
@@ -43,7 +44,7 @@ alias gcf="git add -A && git commit --fixup=HEAD"
 alias grbi='git rebase -i --autosquash'
 
 # github
-alias ghpr='gh pr create --fill --reviewer j05k0,filipprosovsky,SamuelHopko,mgarces'
+alias ghpr='gh pr create --fill --reviewer j05k0,filipprosovsky,milanbct'
 
 # docker alias
 alias docker='lima nerdctl'
@@ -54,8 +55,6 @@ alias k='kubectl'
 alias kg='kubectl get'
 alias kgpf='kubectl get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
 alias kgir='kubectl get ingressroute'
-alias kgnp='kubectl get networkpolicy'
-alias kgnpa='kubectl get networkpolicy -A'
 alias kgev='kubectl get events --sort-by='\''{.lastTimestamp}'\'
 alias kds='kubectl describe'
 alias kl='kubectl logs --tail 100'
@@ -71,9 +70,12 @@ alias -g GG=' |& rg'
 
 # AWS gossm
 # https://github.com/gjbae1212/gossm
-alias ssm='gossm start --profile default'
-alias ssm-stage='gossm start --profile stage'
 alias mfa='awsmfa --profile default'
+alias ssm='gossm start --profile default'
+alias ssm-us='gossm start --profile default --region us-east-1'
+alias ssm-ap='gossm start --profile default --region ap-southeast-1'
+alias ssm-sy='gossm start --profile default --region ap-southeast-2'
+alias ssm-stage='gossm start --profile stage'
 
 # azure subscription
 alias az-pp-dev="az account set --subscription 'Portal Prazana Dev/Test'"

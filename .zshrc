@@ -88,6 +88,7 @@ plugins=(
   vscode
   web-search
   z
+  zsh-aliases-exa
   zsh-autosuggestions
   zsh-completions
   zsh-syntax-highlighting
@@ -122,3 +123,4 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # starship
 eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/ansible@2.9/bin:$PATH"

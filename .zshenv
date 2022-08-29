@@ -22,6 +22,9 @@ export AWS_SHARED_CREDENTIALS_FILE=/Users/jirisrba/.aws/credentials
 # terraform M1 workaround
 export GODEBUG=asyncpreemptoff=1
 
+# kubetail: only the pod name is colorized
+export KUBETAIL_COLORED_OUTPUT=pod
+
 # postgres
 PATH="/usr/local/opt/libpq/bin:$PATH"
 
