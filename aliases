@@ -3,9 +3,9 @@
 
 # global bash aliases
 alias ls='ls -G -h --color=auto'
-alias ll='exa -lbGF --git'
-alias llt='exa -lbGd --git --sort=modified'
-alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
+alias ll='exa -lF --header --git'
+alias llt='exa -ld --git --sort=modified'
+alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'
 alias diff='colordiff'
 alias rgi='rg -i'
 alias malina='ssh pi@malina.local' # ssh malina
@@ -13,6 +13,7 @@ alias llt='ls -lhrt | tail'
 alias dush='du -sh * | sort -h'
 alias my-public-ip='curl ifconfig.me'
 alias w='curl "wttr.in/Prague?1"'
+alias pw='pwgen -s -1 32 1'
 
 # macos alias
 alias nc='netcat'
