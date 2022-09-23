@@ -124,3 +124,6 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 # starship
 eval "$(starship init zsh)"
 export PATH="/opt/homebrew/opt/ansible@2.9/bin:$PATH"
+
+# zoxide
+eval "$(zoxide init zsh)"
