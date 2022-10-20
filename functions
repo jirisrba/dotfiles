@@ -34,6 +34,10 @@ function update() {
   #local gisty="gisty pull_all; gisty sync_delete"
   echo mackup backup -f
   mackup backup -f
+
+  echo backup drafts
+  7z a ~/icloud/drafts.$(date -u +%Y-%m-%dT%H%M%S).7z ~/icloud/drafts
+
   echo brew upgrade
   brew update &&
     brew upgrade &&
