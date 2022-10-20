@@ -11,7 +11,7 @@ PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="${HOMEBREW_PREFIX}/opt/curl/bin:$PATH"
 
 # kubectl krew
-PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$HOME/.krew/bin:$PATH"
 
 # vscode
 PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"

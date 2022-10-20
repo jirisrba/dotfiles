@@ -3,11 +3,21 @@ name = Jiri Srba
 email = jiri.srba@cloudtalk.io
 
 [core]
-editor = code -w
+editor = code --wait
 autocrlf = input
 safecrlf = false
 excludesFile = ~/.gitignore_global
 pager = delta
+
+[init]
+defaultBranch = main
+
+[fetch]
+# automatically remove references to deleted remote branches when fetching
+prune = true
+
+[pull]
+rebase = true
 
 [merge]
 tool = vscode
@@ -20,9 +30,33 @@ tool = vscode
 
 [difftool "vscode"]
 cmd = code --wait --diff $LOCAL $REMOTE
+
 [apply]
 whitespace = nowarn
+
+[push]
+default = simple
+autoSetupRemote = true
+
+[credential]
+helper = osxkeychain
+
+[rebase]
+# Automagically reorder and prefix your commands while doing an interactive
+# rebase. This has to be used with `--fixup` and/or `--squash` options
+autosquash = true
+# Automatically stash current WD and stage when running rebase
+autoStash = true
+
+[delta]
+syntax-theme = Dracula
+plus-style = bold syntax "#002800"
+
+[interactive]
+diffFilter = delta --color-only
+
 [color]
+# Enable colors in color-supporting terminals
 ui = auto
 branch = auto
 diff = auto
@@ -40,21 +74,3 @@ new = green bold
 added = yellow
 changed = green
 untracked = cyan
-[push]
-default = simple
-	autoSetupRemote = true
-[credential]
-helper = osxkeychain
-[init]
-defaultBranch = main
-[fetch]
-prune = true
-[rebase]
-autosquash = true
-
-[delta]
-syntax-theme = Dracula
-plus-style = bold syntax "#002800"
-
-[interactive]
-diffFilter = delta --color-only

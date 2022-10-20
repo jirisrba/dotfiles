@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -69,12 +71,12 @@ plugins=(
   colorize
   common-aliases
   copybuffer
-  copypath
   copyfile
+  copypath
   cp
+  dirhistory
   docker
   dotenv
-  dirhistory
   fd
   git
   helm
@@ -91,6 +93,7 @@ plugins=(
   zsh-aliases-exa
   zsh-autosuggestions
   zsh-completions
+  zsh-kubecolor
   zsh-syntax-highlighting
 )
 
@@ -127,3 +130,9 @@ export PATH="/opt/homebrew/opt/ansible@2.9/bin:$PATH"
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# thefuck
+eval $(thefuck --alias)
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
