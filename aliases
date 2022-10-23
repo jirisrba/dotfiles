@@ -37,13 +37,14 @@ kcs() {
 # git alias
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
 alias g='git'
-alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gl='git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit'
 alias gpl='git pull --all'
 alias gp='git push --follow-tags'
 alias ga='git add -A'
-alias gac="git add -A && git commit -m"
-alias gcf="git add -A && git commit --fixup=HEAD"
+alias gac='git add -A && git commit -m'
+alias gcf='git add -A && git commit --fixup=HEAD'
 alias grbi='git rebase -i --autosquash'
+alias gswd='git switch $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD))'
 
 # github
 alias ghpr='gh pr create --fill --reviewer j05k0,filipprosovsky,milanbct'
