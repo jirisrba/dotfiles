@@ -45,8 +45,6 @@ helper = osxkeychain
 # Automagically reorder and prefix your commands while doing an interactive
 # rebase. This has to be used with `--fixup` and/or `--squash` options
 autosquash = true
-# Automatically stash current WD and stage when running rebase
-autoStash = true
 
 [delta]
 syntax-theme = Dracula

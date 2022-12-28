@@ -28,16 +28,10 @@ alias vs='code'
 # fzf inline alias
 alias _inline_fzf="fzf --multi --ansi -i -1 --height=50% --reverse -0 --header-lines=1 --inline-info --border"
 
-# kubernetes contexts switcher
-kcs() {
-    local context="$(kubectl config get-contexts | _inline_fzf | awk '{print $1}')"
-    eval kubectl config set current-context "${context}"
-}
-
 # git alias
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
 alias g='git'
-alias gl='git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit'
+alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gpl='git pull --all'
 alias gp='git push --follow-tags'
 alias ga='git add -A'
@@ -47,10 +41,10 @@ alias grbi='git rebase -i --autosquash'
 alias gswd='git switch $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD))'
 
 # github
-alias ghpr='gh pr create --fill --reviewer j05k0,filipprosovsky,milanbct'
+alias ghpr='gh pr create --fill --reviewer j05k0,filipprosovsky,samuel-hopko'
 
 # docker alias
-alias docker='lima nerdctl'
+# alias docker='lima nerdctl'
 alias d=docker
 
 # kubectl aliases
@@ -65,8 +59,6 @@ alias kdr='kubectl --dry-run=client -o yaml'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
 alias kbbc='kubectl run busybox-test --image=curlimages/curl -it --rm --restart=Never -- sh'
 
-alias kt='kubetail'
-
 alias -g Oy="--output yaml"
 alias -g LL=' |& less'
 alias -g GG=' |& rg'
@@ -74,12 +66,11 @@ alias -g GG=' |& rg'
 # AWS gossm
 # https://github.com/gjbae1212/gossm
 alias mfa='awsmfa --profile default'
-alias ssm='gossm start --profile default'
+alias ssm='gossm start --profile ${AWS_PROFILE:-default}'
 alias ssm-us='gossm start --profile default --region us-east-1'
 alias ssm-ap='gossm start --profile default --region ap-southeast-1'
 alias ssm-sy='gossm start --profile default --region ap-southeast-2'
-alias ssm-stage='gossm start --profile stage'
 
-# azure subscription
+# azure subscription Portal Prazana
 alias az-pp-dev="az account set --subscription 'Portal Prazana Dev/Test'"
 alias az-pp-prod="az account set --subscription 'Portal Prazana Prod'"

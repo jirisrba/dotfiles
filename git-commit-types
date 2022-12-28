@@ -1,27 +1,55 @@
-       /‾‾‾‾‾‾‾‾
-  😼  <  Meow! Please use semantic commit messages
-       \________
+# Semantic Commit Messages with Emojis
 
-  <type>[<scope>](<issue#>): <short summary>
-     │      │        │          │
-     │      │        │          └─> Summary in present tense. Not capitalized. No period at the end.
-     │      │        │
-     │      │        └─> issue#: issue & pr number
-     │      │
-     │      └─> Scope: common|compiler|authentication|core|
-     │
-     └─> Type: chore, docs, feat, fix, refactor, style, or test.
+Commit format: `<emoji_type> <commit_type>(<scope>): <subject>. <issue_reference>`
 
-feat - A new feature
-fix - A bug fix
-docs - Documentation only changes
-style - Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-refactor - A code change that neither fixes a bug nor adds a feature
-perf - A code change that improves performance
-test - Adding missing tests or correcting existing tests
-build - Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-ci - Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
-chore - Other changes that don't modify src or test files
-revert - Reverts a previous commit
-bump: (version update)
-localize: (translations update)
+## Exmaple
+
+✨ feat(Component): Add a new feature. Closes: #..
+
+```
+✨ feat(Component): Add a new feature. Closes: #
+^--------^ ^--^ ^-------^   ^---------------^  ^------^
+|          |    |           |                  |
+|          |    |           |                  +--> (Optional) Issue reference: if the commit closes or fixes an issue
+|          |    |           |
+|          |    |           +---------------------> Commit summary
+|          |    |
+|          |    +---------------------------------> (Optional) Commit scope in the project
+|          |
+|          +--------------------------------------> Commit type: feat, fix, docs, refactor, test, style, chore, build, perf or ci
+|
++-------------------------------------------------> (Optional) Emoji type. See: https://gitmoji.carloscuesta.me/
+```
+
+✨ feat - A new feature
+🐛 fix - A bug fix
+📚 docs - Documentation only changes
+💎 style - Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+📦 refactor - A code change that neither fixes a bug nor adds a feature
+🚀 perf - A code change that improves performance
+🚨 test - Adding missing tests or correcting existing tests
+⚒️ build - Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+⚙️ ci - Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+♻️ chore - Other changes that don't modify src or test files
+🗑 revert - Reverts a previous commit
+bump - (version update)
+localize - (translations update)
+📦 metadata: Update metadata (package.json)
+📦 dependencies: Update dependencies
+
+## Issue Referencing
+
+Keywords to close an related issue with the commit:
+
+- close
+- closes
+- closed
+- fix
+- fixes
+- fixed
+- resolve
+- resolves
+- resolved
+
+You can use the phrase: `Fixes: #1` or `Fixes #1`.
+Once the branch is merged into the default branch, the issue will close.
