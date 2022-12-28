@@ -1,3 +1,5 @@
+Include /Users/jirisrba/.colima/ssh_config
+
 # ssh config
 Host *
   StrictHostKeyChecking no

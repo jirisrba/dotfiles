@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -128,11 +126,5 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 eval "$(starship init zsh)"
 export PATH="/opt/homebrew/opt/ansible@2.9/bin:$PATH"
 
-# zoxide
-eval "$(zoxide init zsh)"
-
 # thefuck
 eval $(thefuck --alias)
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
