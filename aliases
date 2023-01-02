@@ -35,8 +35,6 @@ alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bol
 alias gpl='git pull --all'
 alias gp='git push --follow-tags'
 alias ga='git add -A'
-alias gac='git add -A && git commit -m'
-alias gcf='git add -A && git commit --fixup=HEAD'
 alias grbi='git rebase -i --autosquash'
 alias gswd='git switch $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD))'
 
