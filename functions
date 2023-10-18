@@ -30,6 +30,16 @@ function gcf() {
     git push --follow-tags --force-with-lease
 }
 
+# Create PR for Github
+ghprc() {
+  num_commits=$(git rev-list --count HEAD ^origin)
+  if [[ $num_commits -gt 1 ]]; then
+    gh pr create --fill --title "$(git branch --show-current)"
+  else
+    gh pr create --title "$(git branch --show-current)" --body "$(git log --pretty=format:%s HEAD ^origin)"
+  fi
+}
+
 # MacOS update
 function update() {
   #local gisty="gisty pull_all; gisty sync_delete"
@@ -40,7 +50,7 @@ function update() {
   7z a ~/icloud/drafts.$(date -u +%Y-%m-%dT%H%M%S).7z ~/icloud/drafts
 
   echo brew upgrade
-  brew update &&
+  brew update --auto-update &&
     brew upgrade &&
     brew cleanup
   echo tldr --update

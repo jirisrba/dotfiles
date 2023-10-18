@@ -7,7 +7,7 @@ alias ll='exa -lF --header --git'
 alias llt='exa -ld --git --sort=modified'
 alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'
 alias diff='colordiff'
-alias rgi='rg -i'
+alias rg='rg --smart-case --no-heading --color=always -g \!README.md'
 alias malina='ssh pi@malina.local' # ssh malina
 alias llt='ls -lhrt | tail'
 alias dush='du -sh * | sort -h'
@@ -15,6 +15,7 @@ alias my-public-ip='curl ifconfig.me'
 alias w='curl "wttr.in/Prague?1"'
 alias pw='pwgen -s -1 32 1'
 alias lg='lazygit'
+alias stern='stern --tail 20'
 
 # macos alias
 alias nc='netcat'
@@ -23,10 +24,6 @@ alias vpnx='scutil --nc stop "CloudTalk VPN"'
 
 # vscode
 alias vs='code'
-
-# kubernetes updatecontext https://github.com/borisputerka/updatecontext
-# fzf inline alias
-alias _inline_fzf="fzf --multi --ansi -i -1 --height=50% --reverse -0 --header-lines=1 --inline-info --border"
 
 # git alias
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
@@ -38,8 +35,11 @@ alias ga='git add -A'
 alias grbi='git rebase -i --autosquash'
 alias gswd='git switch $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD))'
 
-# github
-alias ghpr='gh pr create --fill --reviewer j05k0,filipprosovsky,samuel-hopko'
+# github cli
+alias ghpre='gh pr edit $(gh pr view --json number --jq '.number') --title "$(git branch --show-current)" --body "$(git log --pretty=format:%s HEAD ^origin)"'
+
+# git unalias from plugins
+unalias gcf # replaced with function
 
 # docker alias
 # alias docker='lima nerdctl'
@@ -47,16 +47,23 @@ alias d=docker
 
 # kubectl aliases
 alias k='kubectl'
-alias kg='kubectl get'
-alias kgpf='kubectl get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
-alias kgir='kubectl get ingressroute'
-alias kgev='kubectl get events --sort-by='\''{.lastTimestamp}'\'
-alias kds='kubectl describe'
-alias kl='kubectl logs --tail 100'
+alias kubectl='kubecolor'
+alias kx='kubectx'
+alias kn='kubens'
+alias kg='kubecolor get'
+alias kga='kubecolor get all,cm,secret,externalsecret,ing'
+alias kgpf='kubecolor get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
+alias kgir='kubecolor get ingressroute'
+alias kges='kubecolor get externalsecret'
+alias kgev='kubecolor get events --sort-by='\''{.lastTimestamp}'\'
+alias kds='kubecolor describe'
+alias kl='kubecolor logs --tail 100'
+alias klf='kubecolor logs --tail 20 -f'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
 alias kbbc='kubectl run busybox-test --image=curlimages/curl -it --rm --restart=Never -- sh'
 
+# global aliases
 alias -g Oy="--output yaml"
 alias -g LL=' |& less'
 alias -g GG=' |& rg'
@@ -65,9 +72,9 @@ alias -g GG=' |& rg'
 # https://github.com/gjbae1212/gossm
 alias mfa='awsmfa --profile default'
 alias ssm='gossm start --profile ${AWS_PROFILE:-default}'
-alias ssm-us='gossm start --profile default --region us-east-1'
-alias ssm-ap='gossm start --profile default --region ap-southeast-1'
-alias ssm-sy='gossm start --profile default --region ap-southeast-2'
+alias ssm-us='gossm start --profile ${AWS_PROFILE:-default} --region us-east-1'
+alias ssm-ap='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-1'
+alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-2'
 
 # azure subscription Portal Prazana
 alias az-pp-dev="az account set --subscription 'Portal Prazana Dev/Test'"

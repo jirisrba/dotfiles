@@ -19,6 +19,12 @@ role_arn = arn:aws:iam::603073877574:role/Administrator
 region = eu-central-1
 output = json
 
+[profile prod]
+source_profile = default
+role_arn = arn:aws:iam::431110969381:role/Administrator
+region = eu-central-1
+output = json
+
 [profile sandbox]
 source_profile = default
 role_arn = arn:aws:iam::472371866991:role/Administrator
