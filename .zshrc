@@ -126,7 +126,6 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # starship
 eval "$(starship init zsh)"
-export PATH="/opt/homebrew/opt/ansible@2.9/bin:$PATH"
 
-# thefuck
-eval $(thefuck --alias)
+# ansible
+export PATH="${HOME}/Library/Python/3.11/bin:$PATH"
