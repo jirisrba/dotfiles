@@ -56,10 +56,12 @@ function update() {
   echo tldr --update
   tldr --update
   echo softwareupdate
-  sudo -H softwareupdate -i -a
-  # gem update -n /usr/local/bin --system
+  softwareupdate -i -a
+
+  echo python update all packages
   pip3 install --upgrade pip setuptools wheel
-  pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip3 install -U
+  pip install -U $(pip list --outdated | awk 'NR>2 {print $1}')
+
   echo npm update
   npm install npm -g && npm update -g
   #echo gem update
