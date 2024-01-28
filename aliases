@@ -3,9 +3,9 @@
 
 # global bash aliases
 alias ls='ls -G -h --color=auto'
-alias ll='exa -lF --header --git'
-alias llt='exa -ld --git --sort=modified'
-alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'
+alias ll='eza -lF --header --git'
+alias llt='eza -ld --git --sort=modified'
+alias la='eza -lbhHigUmuSa --time-style=long-iso --git --color-scale'
 alias diff='colordiff'
 alias rg='rg --smart-case --no-heading --color=always -g \!README.md'
 alias malina='ssh pi@malina.local' # ssh malina
