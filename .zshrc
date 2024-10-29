@@ -82,6 +82,7 @@ plugins=(
   isodate
   k
   kubectl
+  kubectl-autocomplete
   macos
   python
   terraform
