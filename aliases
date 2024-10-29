@@ -33,7 +33,7 @@ alias gpl='git pull --all'
 alias gp='git push --follow-tags'
 alias ga='git add -A'
 alias grbi='git rebase -i --autosquash'
-alias gswd='git switch $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD))'
+alias gswd='git switch $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) && git pull --all'
 
 # github cli
 alias ghpre='gh pr edit $(gh pr view --json number --jq '.number') --title "$(git branch --show-current)" --body "$(git log --pretty=format:%s HEAD ^origin)"'
@@ -52,7 +52,7 @@ alias kx='kubectx'
 alias kn='kubens'
 alias kg='kubecolor get'
 alias kgng='kubectl get nodes --label-columns=node.kubernetes.io/instance-type,eks.amazonaws.com/nodegroup'
-alias kga='kubecolor get all,cm,secret,externalsecret,ing'
+alias kga='kubecolor get all,cm,secret,externalsecret,ing,gw,vs'
 alias kgpf='kubecolor get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
 alias kgir='kubecolor get ingressroute'
 alias kges='kubecolor get externalsecret'
@@ -62,7 +62,7 @@ alias kl='kubecolor logs --tail 100'
 alias klf='kubecolor logs --tail 20 -f'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
-alias kbbc='kubectl run busybox-test --image=curlimages/curl -it --rm --restart=Never -- sh'
+alias kbbc='kubectl run curl-moje --image=curlimages/curl -it --rm --restart=Never -- sh'
 
 # global aliases
 alias -g Oy="--output yaml"
