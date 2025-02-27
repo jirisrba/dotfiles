@@ -62,8 +62,9 @@ function update() {
   pip3 install --upgrade pip setuptools wheel
   pip install -U $(pip list --outdated | awk 'NR>2 {print $1}')
 
-  echo npm update
-  npm install npm -g && npm update -g
+  #echo npm update
+  # npm install npm -g && npm update -g
+
   #echo gem update
   #sudo gem update --system -n /usr/local/bin/gem && \
   #  sudo -H gem update -n /usr/local/bin && \

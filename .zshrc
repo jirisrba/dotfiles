@@ -80,7 +80,6 @@ plugins=(
   helm
   history-substring-search
   isodate
-  k
   kubectl
   kubectl-autocomplete
   macos
@@ -89,7 +88,6 @@ plugins=(
   vscode
   web-search
   z
-  zsh-aliases-exa
   zsh-autosuggestions
   zsh-completions
   zsh-kubecolor
@@ -131,6 +129,14 @@ eval "$(starship init zsh)"
 # ansible
 # export PATH="${HOME}/Library/Python/3.11/bin:$PATH"
 
+# Prioritize Homebrew GNU less
+export PATH="/opt/homebrew/bin:$PATH"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# kubectl autocomplete
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+# make completion work with kubecolor
+compdef kubecolor=kubectl

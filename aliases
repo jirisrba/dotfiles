@@ -34,6 +34,7 @@ alias gp='git push --follow-tags'
 alias ga='git add -A'
 alias grbi='git rebase -i --autosquash'
 alias gswd='git switch $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) && git pull --all'
+alias gprn='npx git-removed-branches --prune --force'
 
 # github cli
 alias ghpre='gh pr edit $(gh pr view --json number --jq '.number') --title "$(git branch --show-current)" --body "$(git log --pretty=format:%s HEAD ^origin)"'
@@ -42,7 +43,6 @@ alias ghpre='gh pr edit $(gh pr view --json number --jq '.number') --title "$(gi
 unalias gcf # replaced with function
 
 # docker alias
-# alias docker='lima nerdctl'
 alias d=docker
 
 # kubectl aliases
@@ -51,12 +51,12 @@ alias kubectl='kubecolor'
 alias kx='kubectx'
 alias kn='kubens'
 alias kg='kubecolor get'
-alias kgng='kubectl get nodes --label-columns=node.kubernetes.io/instance-type,eks.amazonaws.com/nodegroup'
+alias kgng='kubectl get nodes --label-columns=node.kubernetes.io/instance-type,nodegroup'
 alias kga='kubecolor get all,cm,secret,externalsecret,ing,gw,vs'
 alias kgpf='kubecolor get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
 alias kgir='kubecolor get ingressroute'
 alias kges='kubecolor get externalsecret'
-alias kgev='kubecolor get events --sort-by='\''{.lastTimestamp}'\'
+alias kgev='kubecolor get events --sort-by=.metadata.creationTimestamp'
 alias kds='kubecolor describe'
 alias kl='kubecolor logs --tail 100'
 alias klf='kubecolor logs --tail 20 -f'
@@ -65,7 +65,7 @@ alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
 alias kbbc='kubectl run curl-moje --image=curlimages/curl -it --rm --restart=Never -- sh'
 
 # global aliases
-alias -g Oy="--output yaml"
+alias -g OY="--output yaml"
 alias -g LL=' |& less'
 alias -g GG=' |& rg'
 
@@ -76,7 +76,3 @@ alias ssm='gossm start --profile ${AWS_PROFILE:-default}'
 alias ssm-us='gossm start --profile ${AWS_PROFILE:-default} --region us-east-1'
 alias ssm-ap='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-1'
 alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-2'
-
-# azure subscription Portal Prazana
-alias az-pp-dev="az account set --subscription 'Portal Prazana Dev/Test'"
-alias az-pp-prod="az account set --subscription 'Portal Prazana Prod'"
