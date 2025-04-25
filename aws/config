@@ -1,44 +1,54 @@
-[profile default-before-mfa]
-region = eu-central-1
-output=json
-mfa_serial = arn:aws:iam::897285133359:mfa/jiri.srba
-
 [profile default]
+sso_start_url = https://cloudtalk.awsapps.com/start/#
+sso_region = eu-central-1
 region = eu-central-1
 output=json
 
 [profile mgmt]
-source_profile = default
-role_arn = arn:aws:iam::233281872604:role/Administrator
+source = default
+sso_account_id = 233281872604
+sso_role_name = AdministratorAccess
+sso_start_url = https://cloudtalk.awsapps.com/start/#
+sso_region = eu-central-1
 region = eu-central-1
-output = json
+output=json
 
 [profile dev]
-source_profile = default
-role_arn = arn:aws:iam::765118799094:role/Administrator
+sso_account_id = 765118799094
+sso_role_name = AdministratorAccess
+sso_start_url = https://cloudtalk.awsapps.com/start/#
+sso_region = eu-central-1
 region = eu-central-1
-output = json
+output=json
 
 [profile stage]
-source_profile = default
-role_arn = arn:aws:iam::603073877574:role/Administrator
+sso_account_id = 603073877574
+sso_role_name = AdministratorAccess
+sso_start_url = https://cloudtalk.awsapps.com/start/#
+sso_region = eu-central-1
 region = eu-central-1
-output = json
+output=json
 
 [profile prod]
-source_profile = default
-role_arn = arn:aws:iam::431110969381:role/Administrator
+sso_account_id = 431110969381
+sso_role_name = AdministratorAccess
+sso_start_url = https://cloudtalk.awsapps.com/start/#
+sso_region = eu-central-1
 region = eu-central-1
-output = json
+output=json
 
 [profile sandbox]
-source_profile = default
-role_arn = arn:aws:iam::472371866991:role/Administrator
-region=eu-central-1
-output = json
-
-[profile admin]
-source_profile = default
-role_arn = arn:aws:iam::897285133359:role/Administrator
+sso_account_id = 472371866991
+sso_role_name = AdministratorAccess
+sso_start_url = https://cloudtalk.awsapps.com/start/#
+sso_region = eu-central-1
 region = eu-central-1
-output = json
+output=json
+
+[profile root]
+sso_account_id = 897285133359
+sso_role_name = AdministratorAccess
+sso_start_url = https://cloudtalk.awsapps.com/start/#
+sso_region = eu-central-1
+region = eu-central-1
+output=json
