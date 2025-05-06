@@ -140,3 +140,5 @@ export NVM_DIR="$HOME/.nvm"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 # make completion work with kubecolor
 compdef kubecolor=kubectl
+
+. "$HOME/.grit/bin/env"

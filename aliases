@@ -34,7 +34,7 @@ alias gp='git push --follow-tags'
 alias ga='git add -A'
 alias grbi='git rebase -i --autosquash'
 alias gswd='git switch $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) && git pull --all'
-alias gprn='npx git-removed-branches --prune --force'
+alias gprn='npx git-removed-branches --prune --force ; git branch'
 
 # github cli
 alias ghpre='gh pr edit $(gh pr view --json number --jq '.number') --title "$(git branch --show-current)" --body "$(git log --pretty=format:%s HEAD ^origin)"'
