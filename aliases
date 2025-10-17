@@ -2,14 +2,14 @@
 # For a full list of active aliases, run `alias`.
 
 # global bash aliases
-alias ls='ls -G -h --color=auto'
+alias ls='ls -G -h'
 alias ll='eza -lF --header --git'
 alias llt='eza -ld --git --sort=modified'
+alias lltr='ls -lhrt | tail'
 alias la='eza -lbhHigUmuSa --time-style=long-iso --git --color-scale'
 alias diff='colordiff'
 alias rg='rg --smart-case --no-heading --color=always -g \!README.md'
 alias malina='ssh pi@malina.local' # ssh malina
-alias llt='ls -lhrt | tail'
 alias dush='du -sh * | sort -h'
 alias my-public-ip='curl ifconfig.me'
 alias w='curl "wttr.in/Prague?1"'
@@ -71,8 +71,10 @@ alias -g GG=' |& rg'
 
 # AWS gossm
 # https://github.com/gjbae1212/gossm
-alias mfa='awsmfa --profile default'
 alias ssm='gossm start --profile ${AWS_PROFILE:-default}'
 alias ssm-us='gossm start --profile ${AWS_PROFILE:-default} --region us-east-1'
 alias ssm-ap='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-1'
 alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-2'
+
+## claude code aliases
+alias cccommit='claude "commit and pr"'

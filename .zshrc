@@ -65,6 +65,7 @@ plugins=(
   autojump
   aws
   brew
+  claudecode
   colored-man-pages
   colorize
   common-aliases
@@ -96,17 +97,20 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# source .zshenv
-source $HOME/.zshenv
-
 # aliases
-source $HOME/dotfiles/aliases
+[[ -f "$HOME/dotfiles/aliases" ]] && source "$HOME/dotfiles/aliases"
 
 # functions
-source $HOME/dotfiles/functions
+[[ -f "$HOME/dotfiles/functions" ]] && source "$HOME/dotfiles/functions"
 
 # zsh-completions
-autoload -U compinit && compinit
+# Only regenerate compdump once a day for better performance
+autoload -U compinit
+if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 
 # iterm2
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
@@ -129,8 +133,6 @@ eval "$(starship init zsh)"
 # ansible
 # export PATH="${HOME}/Library/Python/3.11/bin:$PATH"
 
-# Prioritize Homebrew GNU less
-export PATH="/opt/homebrew/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -140,5 +142,3 @@ export NVM_DIR="$HOME/.nvm"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 # make completion work with kubecolor
 compdef kubecolor=kubectl
-
-. "$HOME/.grit/bin/env"

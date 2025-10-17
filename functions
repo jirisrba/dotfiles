@@ -20,7 +20,11 @@ function man() {
 
 # git
 function gac() {
-  git add -A && git commit -m "$@" && git push --follow-tags
+  if [[ -z "$*" ]]; then
+    echo "Error: Commit message required"
+    return 1
+  fi
+  git add -A && git commit -m "$*" && git push --follow-tags
 }
 
 function gcf() {
