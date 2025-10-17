@@ -1,0 +1,26 @@
+{
+  "auto_approve": true,
+  "auto_approve_safe_commands": true,
+  "log_all_commands": true,
+  "working_directory": "~/scratch",
+  "require_approval_for": [
+    "rm -rf",
+    "dd",
+    "chmod",
+    "chown",
+    "kubectl delete",
+    "terraform destroy",
+    "docker rm",
+    "git push --force"
+  ],
+  "commit_style": {
+    "format": "conventional",
+    "body": false,
+    "subject_max_length": 50,
+    "examples": [
+      "feat: add login endpoint",
+      "fix: handle null pointer in router",
+      "chore: update dependencies"
+    ]
+  }
+}

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Prioritize Homebrew GNU less
+export PATH="/opt/homebrew/bin:$PATH"
+
 # MacOS brew path
 # Ensure user-installed binaries take precedence
 PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
@@ -17,10 +20,10 @@ export PATH="$HOME/.krew/bin:$PATH"
 PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 # AWS gossm mfa
-export AWS_SHARED_CREDENTIALS_FILE=/Users/jirisrba/.aws/credentials
+# export AWS_SHARED_CREDENTIALS_FILE="$HOME/.aws/credentials"
 
 # terraform M1 workaround
-export GODEBUG=asyncpreemptoff=1
+# export GODEBUG=asyncpreemptoff=1
 
 # kubetail: only the pod name is colorized
 export KUBETAIL_COLORED_OUTPUT=pod
@@ -42,9 +45,6 @@ else
   export EDITOR="code -w"
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # ssh
@@ -65,3 +65,5 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # cargo
 # . "$HOME/.cargo/env"
+
+# . "$HOME/.grit/bin/env"
