@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Read(**/*)",
+      "Write(**/*)",
+      "Edit(**/*)"
+    ]
+  },
+  "alwaysThinkingEnabled": false
+}

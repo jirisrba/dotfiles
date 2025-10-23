@@ -78,3 +78,5 @@ alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeas
 
 ## claude code aliases
 alias cccommit='claude "commit and pr"'
+alias ccinfra='claude "Review and optimize this infrastructure code"'
+alias ccdeploy='claude "Help me with this deployment script"'

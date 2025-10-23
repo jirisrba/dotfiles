@@ -77,6 +77,7 @@ plugins=(
   docker
   dotenv
   fd
+  gh
   git
   helm
   history-substring-search
