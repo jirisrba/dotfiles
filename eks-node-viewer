@@ -1,2 +1,3 @@
 extra-labels=eks-node-viewer/node-age,topology.kubernetes.io/zone,nodegroup
 disable-pricing=true
+node-sort nodegroup=asc
