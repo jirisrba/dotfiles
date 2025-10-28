@@ -44,6 +44,11 @@ ghprc() {
   fi
 }
 
+# Open current PR in browser
+ghpr() {
+  gh pr view --web
+}
+
 # MacOS update
 function update() {
   #local gisty="gisty pull_all; gisty sync_delete"
@@ -62,9 +67,8 @@ function update() {
   echo softwareupdate
   softwareupdate -i -a
 
-  echo python update all packages
-  pip3 install --upgrade pip setuptools wheel
-  pip install -U $(pip list --outdated | awk 'NR>2 {print $1}')
+  echo pipx upgrade all packages
+  pipx upgrade-all
 
   #echo npm update
   # npm install npm -g && npm update -g
