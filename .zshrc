@@ -96,6 +96,29 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# =============================================================================
+# LAZY LOADING FOR PERFORMANCE
+# =============================================================================
+
+# kubectl autocomplete - lazy loaded for better performance
+_kubectl_lazy_load() {
+  unfunction kubectl kubecolor 2>/dev/null
+  if command -v kubectl &> /dev/null; then
+    source <(command kubectl completion zsh)
+    compdef kubecolor=kubectl
+  fi
+}
+
+kubectl() {
+  _kubectl_lazy_load
+  kubectl "$@"
+}
+
+kubecolor() {
+  _kubectl_lazy_load
+  kubecolor "$@"
+}
+
 # aliases
 [[ -f "$HOME/dotfiles/aliases" ]] && source "$HOME/dotfiles/aliases"
 
@@ -128,16 +151,3 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # starship
 eval "$(starship init zsh)"
-
-# ansible
-# export PATH="${HOME}/Library/Python/3.11/bin:$PATH"
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-# kubectl autocomplete
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-# make completion work with kubecolor
-compdef kubecolor=kubectl

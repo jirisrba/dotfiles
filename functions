@@ -77,3 +77,17 @@ function update() {
   #  sudo -H gem update -n /usr/local/bin && \
   #  sudo -H gem cleanup
 }
+
+# Terraform workspace operations
+function tfw() {
+  if [[ -z "$1" ]]; then
+    terraform workspace list
+  else
+    terraform workspace select "$1" || terraform workspace new "$1"
+  fi
+}
+
+# Quick secret decode from Kubernetes
+function kdecode() {
+  kubectl get secret "$1" -o json | jq -r '.data | map_values(@base64d)'
+}
