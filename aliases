@@ -46,6 +46,8 @@ unalias gcf # replaced with function
 alias d=docker
 
 # kubectl aliases
+# Note: kubectl and kubecolor are lazy-loaded functions in .zshrc
+# These aliases override the functions to ensure kubecolor is used
 alias k='kubectl'
 alias kubectl='kubecolor'
 alias kx='kubectx'

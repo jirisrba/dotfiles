@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# You may need to manually set your language environment
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# General
+export EDITOR="code --wait"
+export VISUAL="code --wait"
+
 # Prioritize Homebrew GNU less
 export PATH="/opt/homebrew/bin:$PATH"
 
@@ -13,20 +21,28 @@ PATH="${HOMEBREW_PREFIX}/opt/gnu-getopt/bin:$PATH"
 PATH="${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="${HOMEBREW_PREFIX}/opt/curl/bin:$PATH"
 
+# Kubernetes
+export KUBECONFIG="${HOME}/.kube/config"
+export KUBE_EDITOR="code --wait"
+
 # kubectl krew
 export PATH="$HOME/.krew/bin:$PATH"
+
+# kubetail: only the pod name is colorized
+export KUBETAIL_COLORED_OUTPUT=pod
 
 # vscode
 PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
+# AWS
+export AWS_PAGER=""  # Disable pager for AWS CLI
+export AWS_DEFAULT_OUTPUT="json"
+
 # AWS gossm
 export AWS_SHARED_CREDENTIALS_FILE="$HOME/.aws/credentials"
 
-# terraform M1 workaround
-# export GODEBUG=asyncpreemptoff=1
-
-# kubetail: only the pod name is colorized
-export KUBETAIL_COLORED_OUTPUT=pod
+# Terraform
+export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 
 # postgres
 PATH="/usr/local/opt/libpq/bin:$PATH"
@@ -34,21 +50,6 @@ PATH="/usr/local/opt/libpq/bin:$PATH"
 # local bash scripts $HOME/bin
 PATH=$HOME/bin:$PATH
 
-# You may need to manually set your language environment
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR="code -w"
-fi
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # docker
 export DOCKER_BUILDKIT=1
@@ -56,14 +57,12 @@ export DOCKER_BUILDKIT=1
 # MacOS ansible
 export ANSIBLE_NOCOWS=1
 
-# MacOS Java Home
-# export JAVA_HOME=$(/usr/libexec/java_home)
-
 # GO
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
-# cargo
-# . "$HOME/.cargo/env"
+# NVM
+export NVM_DIR="$HOME/.nvm"
 
-# . "$HOME/.grit/bin/env"
+# ansible
+# export PATH="${HOME}/Library/Python/3.11/bin:$PATH"
