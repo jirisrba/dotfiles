@@ -46,8 +46,6 @@ unalias gcf # replaced with function
 alias d=docker
 
 # kubectl aliases
-# Note: kubectl and kubecolor are lazy-loaded functions in .zshrc
-# These aliases override the functions to ensure kubecolor is used
 alias k='kubectl'
 alias kubectl='kubecolor'
 alias kx='kubectx'
@@ -79,6 +77,6 @@ alias ssm-ap='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeas
 alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-2'
 
 ## claude code aliases
-alias cccommit='claude "commit and pr"'
+alias cccommit='claude "commit, push, and create a PR"'
 alias ccinfra='claude "Review and optimize this infrastructure code"'
 alias ccdeploy='claude "Help me with this deployment script"'

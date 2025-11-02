@@ -100,24 +100,11 @@ source $ZSH/oh-my-zsh.sh
 # LAZY LOADING FOR PERFORMANCE
 # =============================================================================
 
-# kubectl autocomplete - lazy loaded for better performance
-_kubectl_lazy_load() {
-  unfunction kubectl kubecolor 2>/dev/null
-  if command -v kubectl &> /dev/null; then
-    source <(command kubectl completion zsh)
-    compdef kubecolor=kubectl
-  fi
-}
-
-kubectl() {
-  _kubectl_lazy_load
-  kubectl "$@"
-}
-
-kubecolor() {
-  _kubectl_lazy_load
-  kubecolor "$@"
-}
+# kubectl autocomplete - direct loading
+if command -v kubectl &> /dev/null; then
+  source <(kubectl completion zsh)
+  compdef kubecolor=kubectl
+fi
 
 # aliases
 [[ -f "$HOME/dotfiles/aliases" ]] && source "$HOME/dotfiles/aliases"
