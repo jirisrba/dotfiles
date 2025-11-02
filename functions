@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# simple calc
-function = {
-  echo "$@" | bc -l
-}
-
 # man color pages
 function man() {
   env \
@@ -35,7 +30,7 @@ function gcf() {
 }
 
 # Create PR for Github
-ghprc() {
+function ghprc() {
   num_commits=$(git rev-list --count HEAD ^origin)
   if [[ $num_commits -gt 1 ]]; then
     gh pr create --fill --title "$(git branch --show-current)"
@@ -45,18 +40,22 @@ ghprc() {
 }
 
 # Open current PR in browser
-ghpr() {
+function ghpr() {
   gh pr view --web
 }
 
 # MacOS update
 function update() {
   #local gisty="gisty pull_all; gisty sync_delete"
-  echo mackup backup -f
-  mackup backup -f
+  # echo mackup backup -f
+  # mackup backup -f || echo "Warning: mackup backup failed, continuing..."
 
   echo backup drafts
-  7z a ~/icloud/drafts.$(date -u +%Y-%m-%dT%H%M%S).7z ~/icloud/drafts
+  if [[ -d ~/icloud/drafts ]]; then
+    7z a ~/icloud/drafts.$(date -u +%Y-%m-%dT%H%M%S).7z ~/icloud/drafts
+  else
+    echo "Warning: ~/icloud/drafts directory not found, skipping..."
+  fi
 
   echo brew upgrade
   brew update --auto-update &&
