@@ -4,6 +4,8 @@
       "WebSearch",
       "Bash(git:*)",
       "Bash(gh:*)",
+      "Bash(terraform:show)",
+      "Bash(terraform:state:list)",
       "Read(**/*)",
       "Write(**/*)",
       "Edit(**/*)"
