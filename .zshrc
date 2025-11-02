@@ -62,7 +62,6 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
   alias-finder
   ansible
-  autojump
   aws
   brew
   claudecode
@@ -89,7 +88,6 @@ plugins=(
   terraform
   vscode
   web-search
-  z
   zsh-autosuggestions
   zsh-completions
   zsh-kubecolor
@@ -118,8 +116,8 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
-# autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+# zoxide (replaces autojump)
+eval "$(zoxide init zsh --cmd j)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
