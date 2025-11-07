@@ -6,6 +6,9 @@
       "Bash(gh:*)",
       "Bash(terraform:show)",
       "Bash(terraform:state:list)",
+      "Bash(kubectl get:*)",
+      "Bash(kubectl describe:*)",
+      "Bash(kubectl logs:*)",
       "Read(**/*)",
       "Write(**/*)",
       "Edit(**/*)"
