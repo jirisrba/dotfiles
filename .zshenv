@@ -11,6 +11,9 @@ export VISUAL="code --wait"
 # Prioritize Homebrew GNU less
 export PATH="/opt/homebrew/bin:$PATH"
 
+# claude code
+export PATH="$HOME/.local/bin:$PATH"
+
 # MacOS brew path
 # Ensure user-installed binaries take precedence
 PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
