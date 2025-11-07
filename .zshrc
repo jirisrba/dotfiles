@@ -71,7 +71,6 @@ plugins=(
   copyfile
   copypath
   cp
-  dirhistory
   docker
   dotenv
   gh
