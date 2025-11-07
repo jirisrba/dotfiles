@@ -64,7 +64,6 @@ plugins=(
   ansible
   aws
   brew
-  claude-code
   colored-man-pages
   colorize
   common-aliases
