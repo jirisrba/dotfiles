@@ -77,6 +77,7 @@ alias ssm-ap='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeas
 alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-2'
 
 ## claude code aliases
+alias cc="claude"
 alias cccommit='claude "commit, push, and create a PR"'
 alias ccinfra='claude "Review and optimize this infrastructure code"'
 alias ccdeploy='claude "Help me with this deployment script"'
