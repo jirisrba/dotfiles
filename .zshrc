@@ -64,7 +64,7 @@ plugins=(
   ansible
   aws
   brew
-  claudecode
+  claude-code
   colored-man-pages
   colorize
   common-aliases
@@ -75,7 +75,6 @@ plugins=(
   dirhistory
   docker
   dotenv
-  fd
   gh
   git
   helm
