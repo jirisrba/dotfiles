@@ -46,27 +46,38 @@ unalias gcf # replaced with function
 alias d=docker
 
 # kubectl aliases
-alias k='kubectl'
-alias kubectl='kubecolor'
+# Base aliases
+alias k='kubecolor --force-colors'
+alias kubectl='kubecolor --force-colors'
 alias kx='kubectx'
 alias kn='kubens'
-alias kg='kubecolor get'
-alias kgng='kubectl get nodes --label-columns=node.kubernetes.io/instance-type,nodegroup'
-alias kga='kubecolor get all,cm,secret,externalsecret,ing,gw,vs'
-alias kgpf='kubecolor get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
-alias kgir='kubecolor get ingressroute'
-alias kges='kubecolor get externalsecret'
-alias kgev='kubecolor get events --sort-by=.metadata.creationTimestamp'
-alias kds='kubecolor describe'
-alias kl='kubecolor logs --tail 100'
-alias klf='kubecolor logs --tail 20 -f'
+
+# Override kubectl plugin aliases with --force-colors
+alias kg='kubecolor --force-colors get'
+alias kgp='kubecolor --force-colors get pods'
+alias kgd='kubecolor --force-colors get deployment'
+alias kgs='kubecolor --force-colors get svc'
+alias kgn='kubecolor --force-colors get nodes'
+alias kgns='kubecolor --force-colors get namespaces'
+alias kgi='kubecolor --force-colors get ingress'
+
+# Custom kubectl aliases
+alias kgng='kubecolor --force-colors get nodes --label-columns=node.kubernetes.io/instance-type,nodegroup'
+alias kga='kubecolor --force-colors get all,cm,secret,externalsecret,ing,gw,vs'
+alias kgpf='kubecolor --force-colors get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
+alias kgir='kubecolor --force-colors get ingressroute'
+alias kges='kubecolor --force-colors get externalsecret'
+alias kgev='kubecolor --force-colors get events --sort-by=.metadata.creationTimestamp'
+alias kds='kubecolor --force-colors describe'
+alias kl='kubecolor --force-colors logs --tail 100'
+alias klf='kubecolor --force-colors logs --tail 20 -f'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
 alias kbbc='kubectl run curl-moje --image=curlimages/curl -it --rm --restart=Never -- sh'
 
 # global aliases
 alias -g OY="--output yaml"
-alias -g LL=' |& less'
+alias -g LL=' |& less -R'
 alias -g GG=' |& rg'
 
 # AWS gossm
