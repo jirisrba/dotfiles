@@ -33,6 +33,7 @@ alias gpl='git pull --all'
 alias gp='git push --follow-tags'
 alias ga='git add -A'
 alias grbi='git rebase -i --autosquash'
+alias grbd='git pull origin $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) --rebase'
 alias gswd='git switch $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) && git pull --all'
 alias gprn='npx git-removed-branches --prune --force ; git branch'
 
