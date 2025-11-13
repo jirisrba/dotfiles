@@ -3,6 +3,10 @@
   "auto_approve_safe_commands": true,
   "log_all_commands": true,
   "working_directory": "~/scratch",
+  "auto_approve_patterns": [
+    "jq:*",
+    "yq:*"
+  ],
   "require_approval_for": [
     "rm -rf",
     "dd",

@@ -6,6 +6,7 @@
       "Bash(gh:*)",
       "Bash(terraform:show)",
       "Bash(terraform:state:list)",
+      "Bash(terraform:state:show)",
       "Bash(kubectl get:*)",
       "Bash(kubectl describe:*)",
       "Bash(kubectl logs:*)",
@@ -14,5 +15,5 @@
       "Edit(**/*)"
     ]
   },
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": true
 }
