@@ -69,7 +69,7 @@ alias kgpf='kubecolor --force-colors get pod --field-selector=status.phase!=Runn
 alias kgir='kubecolor --force-colors get ingressroute'
 alias kges='kubecolor --force-colors get externalsecret'
 alias kgev='kubecolor --force-colors get events --sort-by=.metadata.creationTimestamp'
-alias kds='kubecolor --force-colors describe'
+alias kd='kubecolor --force-colors describe'
 alias kl='kubecolor --force-colors logs --tail 100'
 alias klf='kubecolor --force-colors logs --tail 20 -f'
 alias kdr='kubectl --dry-run=client -o yaml'
