@@ -41,7 +41,7 @@ alias gprn='npx git-removed-branches --prune --force ; git branch'
 alias ghpre='gh pr edit $(gh pr view --json number --jq '.number') --title "$(git branch --show-current)" --body "$(git log --pretty=format:%s HEAD ^origin)"'
 
 # git unalias from plugins
-unalias gcf # replaced with function
+unalias gcf 2>/dev/null # replaced with function
 
 # docker alias
 alias d=docker
@@ -88,8 +88,13 @@ alias ssm-us='gossm start --profile ${AWS_PROFILE:-default} --region us-east-1'
 alias ssm-ap='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-1'
 alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-2'
 
-## claude code aliases
+## Claude code aliases
+# Core aliases
 alias cc="claude"
-alias cccommit='claude "commit, push, and create a PR"'
-alias ccinfra='claude "Review and optimize this infrastructure code"'
-alias ccdeploy='claude "Help me with this deployment script"'
+alias cc-quick="claude -p"                          # Quick queries (print mode, no interactive)
+alias cc-continue="claude -c"                       # Continue last conversation
+
+# Task-specific (leverage slash commands)
+alias cc-commit="claude /commit-and-pr"
+alias cc-review="claude /review"
+alias cc-secure="claude /security-review"
