@@ -9,7 +9,6 @@ alias lltr='ls -lhrt | tail'
 alias la='eza -lbhHigUmuSa --time-style=long-iso --git --color-scale'
 alias diff='colordiff'
 alias rg='rg --smart-case --no-heading --color=always -g \!README.md'
-alias malina='ssh pi@malina.local' # ssh malina
 alias dush='du -sh * | sort -h'
 alias my-public-ip='curl ifconfig.me'
 alias w='curl "wttr.in/Prague?1"'
@@ -72,9 +71,8 @@ alias kgev='kubecolor --force-colors get events --sort-by=.metadata.creationTime
 alias kd='kubecolor --force-colors describe'
 alias kl='kubecolor --force-colors logs --tail 100'
 alias klf='kubecolor --force-colors logs --tail 20 -f'
-alias kdr='kubectl --dry-run=client -o yaml'
 alias kbb='kubectl run -it --rm busybox --image=busybox --restart=Never -- sh'
-alias kbbc='kubectl run curl-moje --image=curlimages/curl -it --rm --restart=Never -- sh'
+alias kbbc='kubectl run curl --image=curlimages/curl -it --rm --restart=Never -- sh'
 
 # global aliases
 alias -g OY="--output yaml"
