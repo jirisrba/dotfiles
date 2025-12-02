@@ -274,5 +274,25 @@
     "key": "shift+enter",
     "command": "-python.execSelectionInTerminal",
     "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+  },
+  {
+    "key": "cmd+home",
+    "command": "cursorTop",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "cmd+end",
+    "command": "cursorBottom",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+cmd+home",
+    "command": "cursorTopSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+cmd+end",
+    "command": "cursorBottomSelect",
+    "when": "textInputFocus"
   }
 ]
