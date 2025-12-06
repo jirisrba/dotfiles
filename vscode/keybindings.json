@@ -56,40 +56,9 @@
     "when": "notebookEditorFocused"
   },
   {
-    "key": "ctrl+t",
-    "command": "workbench.action.files.newUntitledFile"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "-workbench.action.files.newUntitledFile"
-  },
-  {
-    "key": "ctrl+;",
-    "command": "-ms-azurecli.toggleLiveQuery",
-    "when": "editorTextFocus && editorLangId == 'azcli'"
-  },
-  {
-    "key": "ctrl+;",
-    "command": "workbench.action.terminal.toggleTerminal"
-  },
-  {
     "key": "ctrl+shift+v",
     "command": "-markdown.showPreview",
     "when": "!notebookEditorFocused && editorLangId == 'markdown'"
-  },
-  {
-    "key": "ctrl+[BracketRight]",
-    "command": "editor.action.indentLines"
-  },
-  {
-    "key": "ctrl+[BracketLeft]",
-    "command": "outdent",
-    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
-  },
-  {
-    "key": "shift+tab",
-    "command": "-outdent",
-    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
   },
   {
     "key": "shift+cmd+d",
@@ -118,31 +87,6 @@
   {
     "key": "ctrl+b ctrl+b",
     "command": "markdown.extension.editing.toggleBold",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
-  },
-  {
-    "key": "cmd+b",
-    "command": "-markdown.extension.editing.toggleBold",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
-  },
-  {
-    "key": "cmd+b",
-    "command": "-markdown.extension.editing.toggleBold",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
-  },
-  {
-    "key": "cmd+b",
-    "command": "-markdown.extension.editing.toggleBold",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
-  },
-  {
-    "key": "cmd+b",
-    "command": "-markdown.extension.editing.toggleBold",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
-  },
-  {
-    "key": "cmd+b",
-    "command": "-markdown.extension.editing.toggleBold",
     "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
   },
   {
@@ -230,7 +174,7 @@
   },
   {
     "key": "cmd+9",
-    "command": "workbench.action.openEditorAtIndex9"
+    "command": "workbench.action.lastEditorInGroup"
   },
   {
     "key": "ctrl+9",
