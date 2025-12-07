@@ -75,11 +75,6 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "shift+alt+down",
-    "command": "-editor.action.copyLinesDownAction",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
     "key": "cmd+b",
     "command": "-markdown.extension.editing.toggleBold",
     "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
@@ -179,16 +174,6 @@
   {
     "key": "ctrl+9",
     "command": "-workbench.action.openEditorAtIndex9"
-  },
-  {
-    "key": "shift+cmd+l",
-    "command": "editor.action.insertCursorAtEndOfEachLineSelected",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "shift+alt+i",
-    "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
-    "when": "editorTextFocus"
   },
   {
     "key": "shift+cmd+enter",
