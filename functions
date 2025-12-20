@@ -67,11 +67,7 @@ function update() {
   softwareupdate -i -a
 
   echo pipx upgrade all packages
-  if command -v pipx &> /dev/null; then
-    pipx upgrade-all
-  else
-    echo "Warning: pipx not found, skipping..."
-  fi
+  pipx upgrade-all
 
   #echo npm update
   # npm install npm -g && npm update -g
