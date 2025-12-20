@@ -41,6 +41,7 @@ alias ghpre='gh pr edit $(gh pr view --json number --jq '.number') --title "$(gi
 
 # git unalias from plugins
 unalias gcf 2>/dev/null # replaced with function
+unalias gh 2>/dev/null # github cli
 
 # docker alias
 alias d=docker
