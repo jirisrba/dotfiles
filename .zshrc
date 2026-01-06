@@ -79,7 +79,6 @@ plugins=(
   history-substring-search
   isodate
   kubectl
-  kubectl-autocomplete
   macos
   python
   terraform
@@ -87,7 +86,6 @@ plugins=(
   web-search
   zsh-autosuggestions
   zsh-completions
-  zsh-kubecolor
   zsh-syntax-highlighting
 )
 
