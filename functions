@@ -51,8 +51,8 @@ function update() {
   # mackup backup -f || echo "Warning: mackup backup failed, continuing..."
 
   echo backup drafts
-  if [[ -d ~/icloud/drafts ]]; then
-    7z a ~/icloud/drafts.$(date -u +%Y-%m-%dT%H%M%S).7z ~/icloud/drafts
+  if [[ -d ~/drafts ]]; then
+    7z a ~/drafts.$(date -u +%Y-%m-%dT%H%M%S).7z ~/drafts
   else
     echo "Warning: ~/icloud/drafts directory not found, skipping..."
   fi
