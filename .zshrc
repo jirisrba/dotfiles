@@ -133,3 +133,8 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # starship
 eval "$(starship init zsh)"
+
+# GitHub Copilot CLI aliases
+alias cop='copilot'
+alias copc='copilot --continue'
+alias copr='copilot --resume'
