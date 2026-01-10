@@ -138,3 +138,7 @@ eval "$(starship init zsh)"
 alias cop='copilot'
 alias copc='copilot --continue'
 alias copr='copilot --resume'
+
+# OpenCode aliases
+alias oc='opencode'
+alias occ='opencode .'
