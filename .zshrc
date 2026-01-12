@@ -83,7 +83,6 @@ plugins=(
   python
   terraform
   vscode
-  web-search
   zsh-autosuggestions
   zsh-completions
   zsh-syntax-highlighting
@@ -133,12 +132,3 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # starship
 eval "$(starship init zsh)"
-
-# GitHub Copilot CLI aliases
-alias cop='copilot'
-alias copc='copilot --continue'
-alias copr='copilot --resume'
-
-# OpenCode aliases
-alias oc='opencode'
-alias occ='opencode .'

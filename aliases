@@ -87,13 +87,15 @@ alias ssm-us='gossm start --profile ${AWS_PROFILE:-default} --region us-east-1'
 alias ssm-ap='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-1'
 alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-2'
 
+# AI tool aliases
 ## Claude code aliases
-# Core aliases
 alias cc="claude"
 alias cc-quick="claude -p"                          # Quick queries (print mode, no interactive)
 alias cc-continue="claude -c"                       # Continue last conversation
 
-# Task-specific (leverage slash commands)
-alias cc-commit="claude /commit-and-pr"
-alias cc-review="claude /review"
-alias cc-secure="claude /security-review"
+## GitHub Copilot CLI aliases
+alias cop='copilot'
+
+## OpenCode aliases
+alias oc='opencode'
+alias occ='opencode .'
