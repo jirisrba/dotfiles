@@ -44,6 +44,21 @@ function ghpr() {
   gh pr view --web
 }
 
+# Create MR for GitLab
+function glmrc() {
+  num_commits=$(git rev-list --count HEAD ^origin)
+  if [[ $num_commits -gt 1 ]]; then
+    glab mr create --fill --title "$(git branch --show-current)"
+  else
+    glab mr create --title "$(git branch --show-current)" --description "$(git log --pretty=format:%s HEAD ^origin)"
+  fi
+}
+
+# Open current MR in browser
+function glmr() {
+  glab mr view --web
+}
+
 # MacOS update
 function update() {
   #local gisty="gisty pull_all; gisty sync_delete"
