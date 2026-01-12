@@ -132,3 +132,23 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # starship
 eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export PATH="/opt/homebrew/Caskroom/sqlcl/25.4.0.346.1855/sqlcl/bin:$PATH"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+
+# =============================================================================
+# ORACLE DATABASE CONFIGURATION
+# =============================================================================
+
+# Oracle TNS Names configuration
+export TNS_ADMIN="$HOME/oracle/network/admin"
+
+# SQLcl aliases for quick database access
+alias sqldev='sql /nolog @<(echo "CONNECT \${1:-username}@DCS_DEV")'
+alias sqltest='sql /nolog @<(echo "CONNECT \${1:-username}@DCS_TEST")'
+alias sqlprod='sql /nolog @<(echo "CONNECT \${1:-username}@DCS_PROD")'
+
+# Simple connection aliases (you'll be prompted for username and password)
+alias sql-dev='sql @DCS_DEV'
+alias sql-test='sql @DCS_TEST'
+alias sql-prod='sql @DCS_PROD'
