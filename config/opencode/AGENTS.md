@@ -52,6 +52,51 @@ bug fix
 - Use imperative mood ("add" not "added", "fix" not "fixed")
 - Focus on WHAT changed, not WHY (the code diff shows the details)
 
+## Git Branch Naming Guidelines
+
+When creating new branches, always follow this naming convention to include JIRA task IDs:
+
+**Pattern:** `{type}/{JIRA-ID}-{brief-description}`
+
+### Branch Types
+
+- **feat/** - New features
+- **fix/** - Bug fixes
+- **chore/** - Maintenance tasks
+- **refactor/** - Code refactoring
+- **docs/** - Documentation updates
+- **test/** - Test additions or updates
+- **hotfix/** - Urgent production fixes
+
+### Examples
+
+✅ **Good - with JIRA IDs:**
+
+```
+feat/DVS-4404-multiarch-build
+feat/DVS-1234-oauth2-authentication
+fix/DVS-5678-api-timeout-issue
+chore/DVS-9012-update-dependencies
+refactor/DVS-3456-simplify-query-builder
+```
+
+❌ **Bad - without JIRA IDs:**
+
+```
+feature-branch
+fix-bug
+my-changes
+update-code
+```
+
+### Rules
+
+- Always include the JIRA task ID after the type prefix
+- Use kebab-case for the description (lowercase with hyphens)
+- Keep descriptions brief but meaningful (2-5 words)
+- Extract JIRA ID from the current branch name when working in an existing repository
+- Before creating a new branch, check if there's an active JIRA task associated with the work
+
 ## File Creation Guidelines
 
 ### Temporary and Testing Files
