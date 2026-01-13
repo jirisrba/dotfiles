@@ -4,22 +4,32 @@
 
 Always use **semantic commit messages** in one-line format without multi-line descriptions or bodies.
 
-**Pattern:** `{type}({scope}): {concise description}`
+**Pattern:** `{type}: {JIRA-ID} {concise description}`
 
-The `scope` is optional but recommended for better context.
+Alternatively, you can use a scope in parentheses: `{type}({scope}): {JIRA-ID} {concise description}`
+
+The JIRA task ID should be separated from the description by a space. The scope is optional.
 
 ### Examples
 
 ✅ **Good - semantic commits:**
 
 ```
-feat(auth): add OAuth2 authentication support
-fix(api): resolve timeout issue in user endpoint
-chore(deps): update dependencies to latest versions
-refactor(database): simplify query builder logic
-docs(readme): update installation instructions
-test(user): add unit tests for user service
-perf(cache): implement Redis caching layer
+feat: DVS-1234 add OAuth2 authentication support
+fix: DVS-5678 resolve timeout issue in user endpoint
+chore: DVS-9012 update dependencies to latest versions
+refactor: DVS-3456 simplify query builder logic
+docs: DVS-7890 update installation instructions
+test: DVS-2345 add unit tests for user service
+perf: DVS-6789 implement Redis caching layer
+```
+
+**With optional scope:**
+
+```
+feat(auth): DVS-1234 add OAuth2 authentication support
+fix(api): DVS-5678 resolve timeout issue in user endpoint
+chore(deps): DVS-9012 update dependencies to latest versions
 ```
 
 ❌ **Bad - non-semantic:**
@@ -96,6 +106,61 @@ update-code
 - Keep descriptions brief but meaningful (2-5 words)
 - Extract JIRA ID from the current branch name when working in an existing repository
 - Before creating a new branch, check if there's an active JIRA task associated with the work
+
+## GitLab Merge Request Guidelines
+
+When creating merge requests for GitLab repositories, use the **glab** CLI utility.
+
+### Creating a Merge Request
+
+Use the following command to create a merge request:
+
+```bash
+glab mr create --title "commit message" --description "$(cat <<'EOF'
+## Summary
+
+Brief summary of changes
+
+## Changes
+
+- Bullet point list of changes
+- Include specific details
+
+## Related
+
+- JIRA: TASK-ID
+- Additional context
+EOF
+)" --yes
+```
+
+### Rules
+
+- The title should match the commit message format: `{type}: {JIRA-ID} {description}`
+- Use a heredoc for multi-line descriptions with markdown formatting
+- Include sections: Summary, Changes, and Related
+- Reference the JIRA task ID in the Related section
+- Use `--yes` flag to skip confirmation prompts
+
+### Example
+
+```bash
+glab mr create --title "chore: DVS-5337 rename aux directories to auxiliary" --description "$(cat <<'EOF'
+## Summary
+
+Renamed all `aux` directories to `auxiliary` to fix Windows compatibility.
+
+## Changes
+
+- Renamed 4 `aux` directories across the database structure
+- Total: 46 SQL view files moved
+
+## Related
+
+- JIRA: DVS-5337
+EOF
+)" --yes
+```
 
 ## File Creation Guidelines
 
