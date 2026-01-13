@@ -80,6 +80,7 @@ plugins=(
   isodate
   kubectl
   macos
+  opentofu
   python
   terraform
   vscode
