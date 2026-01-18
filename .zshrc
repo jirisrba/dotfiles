@@ -107,6 +107,9 @@ fi
 # functions
 [[ -f "$HOME/dotfiles/functions" ]] && source "$HOME/dotfiles/functions"
 
+# CloudNativePG aliases
+[[ -f "$HOME/dotfiles/cnpg_aliases" ]] && source "$HOME/dotfiles/cnpg_aliases"
+
 # zsh-completions
 # Only regenerate compdump once a day for better performance
 autoload -U compinit

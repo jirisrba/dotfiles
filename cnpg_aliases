@@ -1,0 +1,215 @@
+# CloudNativePG (CNPG) kubectl aliases and functions
+# Source this file in your .bashrc or .zshrc:
+#   source ~/.cnpg_aliases
+
+# =============================================================================
+# Basic Aliases
+# =============================================================================
+
+alias kcpg='kubectl cnpg'
+alias kcpgpsql='kubectl cnpg psql'
+alias kcpgstatus='kubectl cnpg status'
+alias kcpgpromote='kubectl cnpg promote'
+alias kcpgbackup='kubectl cnpg backup'
+alias kcpglogs='kubectl cnpg logs'
+alias kcpgreload='kubectl cnpg reload'
+alias kcpgrestart='kubectl cnpg restart'
+alias kcpgcerts='kubectl cnpg certificate'
+
+# =============================================================================
+# Functions
+# =============================================================================
+
+# List all CNPG clusters
+# Usage: kpglist [namespace]
+kpglist() {
+  if [[ -n "$1" ]]; then
+    kubectl get clusters.postgresql.cnpg.io -n "$1"
+  else
+    kubectl get clusters.postgresql.cnpg.io
+  fi
+}
+
+# List all CNPG clusters across all namespaces
+kpglistall() {
+  kubectl get clusters.postgresql.cnpg.io --all-namespaces
+}
+
+# Interactive psql session
+# Usage: kpgi <cluster-name> [-n namespace]
+kpgi() {
+  kubectl cnpg psql "$@"
+}
+
+# Run a single SQL command
+# Usage: kpg <cluster-name> "SQL command" [-n namespace]
+kpg() {
+  local cluster="$1"
+  local sql="$2"
+  shift 2
+  kubectl cnpg psql "$cluster" "$@" -- -c "${sql:-\\dt}"
+}
+
+# Run SQL file against cluster
+# Usage: kpgf <cluster-name> <sql-file> [-n namespace]
+kpgf() {
+  local cluster="$1"
+  local file="$2"
+  shift 2
+  kubectl cnpg psql "$cluster" "$@" -- -f "$file"
+}
+
+# Get cluster status
+# Usage: kpgstatus <cluster-name> [-n namespace]
+kpgstatus() {
+  kubectl cnpg status "$@"
+}
+
+# Get detailed cluster status with verbose output
+# Usage: kpgstatusv <cluster-name> [-n namespace]
+kpgstatusv() {
+  kubectl cnpg status "$@" --verbose
+}
+
+# Create a backup
+# Usage: kpgbackup <cluster-name> [-n namespace]
+kpgbackup() {
+  kubectl cnpg backup "$@"
+}
+
+# List backups for a cluster
+# Usage: kpgbackups [namespace]
+kpgbackups() {
+  if [[ -n "$1" ]]; then
+    kubectl get backups.postgresql.cnpg.io -n "$1"
+  else
+    kubectl get backups.postgresql.cnpg.io
+  fi
+}
+
+# Tail cluster logs (all pods)
+# Usage: kpglogs <cluster-name> [-n namespace]
+kpglogs() {
+  kubectl cnpg logs cluster "$@" -f
+}
+
+# Get logs from primary only
+# Usage: kpglogsp <cluster-name> [-n namespace]
+kpglogsp() {
+  local cluster="$1"
+  shift
+  kubectl cnpg logs cluster "$cluster" "$@" -f --primary
+}
+
+# Promote a replica to primary
+# Usage: kpgpromote <cluster-name> <instance> [-n namespace]
+kpgpromote() {
+  kubectl cnpg promote "$@"
+}
+
+# Restart cluster (rolling restart)
+# Usage: kpgrestart <cluster-name> [-n namespace]
+kpgrestart() {
+  kubectl cnpg restart "$@"
+}
+
+# Reload cluster configuration
+# Usage: kpgreload <cluster-name> [-n namespace]
+kpgreload() {
+  kubectl cnpg reload "$@"
+}
+
+# Get connection secret (app user password)
+# Usage: kpgsecret <cluster-name> [-n namespace]
+kpgsecret() {
+  local cluster="$1"
+  local ns=""
+  if [[ "$2" == "-n" && -n "$3" ]]; then
+    ns="-n $3"
+  fi
+  kubectl get secret "${cluster}-app" $ns -o jsonpath='{.data.password}' | base64 -d
+  echo
+}
+
+# Get superuser secret
+# Usage: kpgsecretsu <cluster-name> [-n namespace]
+kpgsecretsu() {
+  local cluster="$1"
+  local ns=""
+  if [[ "$2" == "-n" && -n "$3" ]]; then
+    ns="-n $3"
+  fi
+  kubectl get secret "${cluster}-superuser" $ns -o jsonpath='{.data.password}' | base64 -d
+  echo
+}
+
+# Get full connection string
+# Usage: kpgconnstr <cluster-name> [-n namespace]
+kpgconnstr() {
+  local cluster="$1"
+  local ns=""
+  if [[ "$2" == "-n" && -n "$3" ]]; then
+    ns="-n $3"
+  fi
+  kubectl get secret "${cluster}-app" $ns -o jsonpath='{.data.uri}' | base64 -d
+  echo
+}
+
+# Describe cluster
+# Usage: kpgdesc <cluster-name> [-n namespace]
+kpgdesc() {
+  kubectl describe clusters.postgresql.cnpg.io "$@"
+}
+
+# Get cluster pods
+# Usage: kpgpods <cluster-name> [-n namespace]
+kpgpods() {
+  local cluster="$1"
+  shift
+  kubectl get pods -l cnpg.io/cluster="$cluster" "$@"
+}
+
+# Exec into primary pod
+# Usage: kpgexec <cluster-name> [-n namespace]
+kpgexec() {
+  local cluster="$1"
+  local ns=""
+  if [[ "$2" == "-n" && -n "$3" ]]; then
+    ns="-n $3"
+  fi
+  local primary=$(kubectl get pods $ns -l cnpg.io/cluster="$cluster",cnpg.io/instanceRole=primary -o jsonpath='{.items[0].metadata.name}')
+  kubectl exec -it "$primary" $ns -- bash
+}
+
+# Watch cluster status
+# Usage: kpgwatch <cluster-name> [-n namespace]
+kpgwatch() {
+  watch -n 2 "kubectl cnpg status $*"
+}
+
+# Get PVC usage for cluster
+# Usage: kpgpvc <cluster-name> [-n namespace]
+kpgpvc() {
+  local cluster="$1"
+  shift
+  kubectl get pvc -l cnpg.io/cluster="$cluster" "$@"
+}
+
+# Hibernate cluster (scale to 0)
+# Usage: kpghibernate <cluster-name> [-n namespace]
+kpghibernate() {
+  kubectl cnpg hibernate on "$@"
+}
+
+# Wake up hibernated cluster
+# Usage: kpgwake <cluster-name> [-n namespace]
+kpgwake() {
+  kubectl cnpg hibernate off "$@"
+}
+
+# =============================================================================
+# Completion hint
+# =============================================================================
+# For bash completion, ensure kubectl completion is loaded:
+#   source <(kubectl completion bash)
+#   complete -F __start_kubectl kcpg
