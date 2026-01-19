@@ -101,6 +101,11 @@ if command -v kubectl &> /dev/null; then
   compdef kubecolor=kubectl
 fi
 
+# kubectl cnpg plugin autocomplete
+if command -v kubectl-cnpg &> /dev/null; then
+  source <(kubectl cnpg completion zsh)
+fi
+
 # aliases
 [[ -f "$HOME/dotfiles/aliases" ]] && source "$HOME/dotfiles/aliases"
 
