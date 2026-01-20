@@ -116,7 +116,7 @@ When creating merge requests for GitLab repositories, use the **glab** CLI utili
 Use the following command to create a merge request:
 
 ```bash
-glab mr create --title "commit message" --description "$(cat <<'EOF'
+glab mr create --title "commit message" --assignee jiri.srba --description "$(cat <<'EOF'
 ## Summary
 
 Brief summary of changes
@@ -140,12 +140,13 @@ EOF
 - Use a heredoc for multi-line descriptions with markdown formatting
 - Include sections: Summary, Changes, and Related
 - Reference the JIRA task ID in the Related section
+- Always assign the MR to yourself using `--assignee jiri.srba`
 - Use `--yes` flag to skip confirmation prompts
 
 ### Example
 
 ```bash
-glab mr create --title "chore: DVS-5337 rename aux directories to auxiliary" --description "$(cat <<'EOF'
+glab mr create --title "chore: DVS-5337 rename aux directories to auxiliary" --assignee jiri.srba --description "$(cat <<'EOF'
 ## Summary
 
 Renamed all `aux` directories to `auxiliary` to fix Windows compatibility.
@@ -185,3 +186,58 @@ Always create temporary, testing, and supporting scripts in `/tmp/` unless expli
 - Part of the permanent codebase
 - Required for CI/CD pipelines
 - Configuration files to be version-controlled
+
+## JIRA Integration Guidelines
+
+### Using JIRA MCP Server for Comments
+
+When adding comments to JIRA tickets, ALWAYS use the **JIRA MCP server** tools instead of curl or other methods.
+
+**Correct approach:**
+- Use `mcp_atlassian_addCommentToJiraIssue` tool
+- Requires `cloudId` and `issueIdOrKey` parameters
+- Supports Markdown formatting in `commentBody`
+
+**Getting CloudId:**
+- Use `mcp_atlassian_getAccessibleAtlassianResources` to list available Atlassian instances
+- Or use site URL (e.g., "jira.pbk-lab.tech") - tool will handle conversion
+
+**Example:**
+```
+mcp_atlassian_addCommentToJiraIssue(
+  cloudId: "jira.pbk-lab.tech",
+  issueIdOrKey: "DVS-5496",
+  commentBody: "Markdown formatted comment..."
+)
+```
+
+**Getting Issue Information:**
+```
+mcp_atlassian_getJiraIssue(
+  cloudId: "jira.pbk-lab.tech",
+  issueIdOrKey: "DVS-5496"
+)
+```
+
+**Searching for Issues:**
+```
+mcp_atlassian_search(
+  query: "DVS-5496"
+)
+```
+
+**Benefits:**
+- Proper authentication handling
+- Markdown support in comments
+- Error handling
+- Better integration with Atlassian ecosystem
+- No need for manual API calls
+
+**Common JIRA Operations:**
+- Add comments: `mcp_atlassian_addCommentToJiraIssue`
+- Get issue details: `mcp_atlassian_getJiraIssue`
+- Search issues: `mcp_atlassian_search`
+- Update issue: `mcp_atlassian_editJiraIssue`
+- Create issue: `mcp_atlassian_createJiraIssue`
+- Transition issue: `mcp_atlassian_transitionJiraIssue`
+
