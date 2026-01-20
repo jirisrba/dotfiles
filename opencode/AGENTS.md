@@ -111,6 +111,22 @@ update-code
 
 When creating merge requests for GitLab repositories, use the **glab** CLI utility.
 
+### When to Create a Merge Request
+
+**IMPORTANT:** Only create GitLab merge requests when working in a GitLab repository.
+
+Before creating an MR, check the remote origin URL:
+
+```bash
+git remote get-url origin
+```
+
+**Create MR only if** the remote URL contains `gitlab.pbk-lab.tech`:
+- ✅ `git@gitlab.pbk-lab.tech:group/project.git`
+- ✅ `https://gitlab.pbk-lab.tech/group/project.git`
+- ❌ `github.com/user/repo.git` (skip MR creation)
+- ❌ Other non-GitLab origins (skip MR creation)
+
 ### Creating a Merge Request
 
 Use the following command to create a merge request:
@@ -136,6 +152,7 @@ EOF
 
 ### Rules
 
+- **Check repository origin** before creating MR (see "When to Create a Merge Request")
 - The title should match the commit message format: `{type}: {JIRA-ID} {description}`
 - Use a heredoc for multi-line descriptions with markdown formatting
 - Include sections: Summary, Changes, and Related
