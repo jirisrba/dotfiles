@@ -141,6 +141,10 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # starship
 eval "$(starship init zsh)"
+
+# VS Code
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export PATH="/opt/homebrew/Caskroom/sqlcl/25.4.0.346.1855/sqlcl/bin:$PATH"
 export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
@@ -151,6 +155,7 @@ export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
 
 # Oracle TNS Names configuration
 export TNS_ADMIN="$HOME/oracle/network/admin"
+export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
 
 # SQLcl aliases for quick database access
 alias sqldev='sql /nolog @<(echo "CONNECT \${1:-username}@DCS_DEV")'
