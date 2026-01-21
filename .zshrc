@@ -89,6 +89,9 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+# Auto-update oh-my-zsh without prompting
+zstyle ':omz:update' mode auto
+
 source $ZSH/oh-my-zsh.sh
 
 # =============================================================================
