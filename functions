@@ -25,7 +25,7 @@ function gac() {
 function gcf() {
   # gcf --no-verify
   git add -A && git commit --fixup=HEAD "$@" &&
-    git rebase -i --autosquash $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) &&
+    git rebase -i --autosquash $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD))
     git push --follow-tags --force-with-lease
 }
 
