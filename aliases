@@ -93,9 +93,6 @@ alias cc="claude"
 alias cc-quick="claude -p"                          # Quick queries (print mode, no interactive)
 alias cc-continue="claude -c"                       # Continue last conversation
 
-## GitHub Copilot CLI aliases
-alias cop='copilot'
-
 ## OpenCode aliases
 alias oc='opencode'
-alias occ='opencode .'
+alias occ='opencode --continue'
