@@ -106,7 +106,42 @@ fi
 
 # kubectl cnpg plugin autocomplete
 if command -v kubectl-cnpg &> /dev/null; then
-  source <(kubectl cnpg completion zsh)
+  # Try to load cnpg completion, but suppress errors
+  kubectl cnpg completion zsh 2>/dev/null | source /dev/stdin 2>/dev/null || true
+
+  # Custom completion function for kubectl cnpg psql to autocomplete cluster names
+  _kubectl_cnpg_psql_clusters() {
+    local context state line
+    typeset -A opt_args
+
+    _arguments -C \
+      '-n[namespace]:namespace:->namespace' \
+      '1:cluster:->cluster' \
+      '*::arg:->args'
+
+    case $state in
+      namespace)
+        local namespaces
+        namespaces=($(kubectl get namespaces -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' 2>/dev/null))
+        _describe 'namespaces' namespaces
+        ;;
+      cluster)
+        local clusters namespace
+        # Extract namespace from -n flag if provided
+        namespace=${opt_args[-n]:-}
+        if [[ -n "$namespace" ]]; then
+          clusters=($(kubectl get clusters.postgresql.cnpg.io -n "$namespace" -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' 2>/dev/null))
+        else
+          # Get clusters from all namespaces with format "cluster-name (namespace)"
+          clusters=($(kubectl get clusters.postgresql.cnpg.io -A -o jsonpath='{range .items[*]}{.metadata.name}{"("}{.metadata.namespace}{")"}{"\n"}{end}' 2>/dev/null | awk '{print $1}'))
+        fi
+        _describe 'clusters' clusters
+        ;;
+    esac
+  }
+
+  # Register the completion function
+  compdef _kubectl_cnpg_psql_clusters 'kubectl cnpg psql'
 fi
 
 # aliases
@@ -152,6 +187,16 @@ export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export PATH="/opt/homebrew/Caskroom/sqlcl/25.4.0.346.1855/sqlcl/bin:$PATH"
 export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
 
+# Krew - kubectl plugin manager (required for kubectl plugins like cnpg)
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# =============================================================================
+# GITLAB CONFIGURATION
+# =============================================================================
+
+# Load GitLab access token from macOS Keychain
+export GITLAB_ACCESS_TOKEN=$(security find-generic-password -a "$USER" -s "gitlab_token" -w 2>/dev/null)
+
 # =============================================================================
 # ORACLE DATABASE CONFIGURATION
 # =============================================================================
@@ -161,11 +206,11 @@ export TNS_ADMIN="$HOME/oracle/network/admin"
 export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
 
 # SQLcl aliases for quick database access
-alias sqldev='sql /nolog @<(echo "CONNECT \${1:-username}@DCS_DEV")'
-alias sqltest='sql /nolog @<(echo "CONNECT \${1:-username}@DCS_TEST")'
-alias sqlprod='sql /nolog @<(echo "CONNECT \${1:-username}@DCS_PROD")'
+alias sqldev='sql /nolog @<(echo "CONNECT \${1:-username}@DCSDEV")'
+alias sqltest='sql /nolog @<(echo "CONNECT \${1:-username}@DCSTEST")'
+alias sqlprod='sql /nolog @<(echo "CONNECT \${1:-username}@DCSPROD")'
 
 # Simple connection aliases (you'll be prompted for username and password)
-alias sql-dev='sql @DCS_DEV'
-alias sql-test='sql @DCS_TEST'
-alias sql-prod='sql @DCS_PROD'
+alias sql-dev='sql @DCSDEV'
+alias sql-test='sql @DCSTEST'
+alias sql-prod='sql @DCSPROD'
