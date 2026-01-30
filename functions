@@ -48,9 +48,9 @@ function ghpr() {
 function glmrc() {
   num_commits=$(git rev-list --count HEAD ^origin)
   if [[ $num_commits -gt 1 ]]; then
-    glab mr create --fill --title "$(git branch --show-current)"
+    glab mr create --fill --title "$(git branch --show-current)" --assignee jiri.srba --remove-source-branch
   else
-    glab mr create --title "$(git branch --show-current)" --description "$(git log --pretty=format:%s HEAD ^origin)"
+    glab mr create --title "$(git branch --show-current)" --description "$(git log --pretty=format:%s HEAD ^origin)" --assignee jiri.srba --remove-source-branch
   fi
 }
 
