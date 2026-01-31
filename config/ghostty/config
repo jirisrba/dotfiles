@@ -1,0 +1,40 @@
+# Font
+font-family = "JetBrains Mono"
+# font-family = "Fira Code"
+font-size = 14
+
+# Dracula Theme
+theme = Dracula
+window-theme = ghostty
+
+# Pravé tlačítko myši = paste
+copy-on-select = clipboard
+right-click-action = paste
+
+# Hotkey window (F12)
+# keybind = super+grave=unbind_hotkey
+keybind = global:f12=toggle_visibility
+# keybind = global:f12=toggle_quick_terminal
+
+window-decoration = false
+
+# Quick terminal positioning (for F12 hotkey window)
+quick-terminal-position = top
+quick-terminal-screen = main
+
+# Window padding (jako iTerm2 margins)
+window-padding-x = 10
+window-padding-y = 10
+
+# Splits support (místo tmux)
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+d=new_split:down
+keybind = cmd+w=close_surface
+
+# Tab support
+keybind = cmd+t=new_tab
+keybind = cmd+shift+left_bracket=previous_tab
+keybind = cmd+shift+right_bracket=next_tab
+
+# macOS specific
+macos-option-as-alt = true
