@@ -16,7 +16,7 @@ right-click-action = paste
 keybind = global:f12=toggle_visibility
 # keybind = global:f12=toggle_quick_terminal
 
-window-decoration = false
+window-decoration = true
 
 # Quick terminal positioning (for F12 hotkey window)
 quick-terminal-position = top
@@ -38,3 +38,5 @@ keybind = cmd+shift+right_bracket=next_tab
 
 # macOS specific
 macos-option-as-alt = true
+
+auto-update = check
