@@ -12,7 +12,6 @@ copy-on-select = clipboard
 right-click-action = paste
 
 # Hotkey window (F12)
-# keybind = super+grave=unbind_hotkey
 keybind = global:f12=toggle_visibility
 # keybind = global:f12=toggle_quick_terminal
 
@@ -40,3 +39,27 @@ keybind = cmd+shift+right_bracket=next_tab
 macos-option-as-alt = true
 
 auto-update = check
+
+# Shell integration (pro working directory tracking, command status)
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Scrollback pro dlouhe logy (default je 10000)
+scrollback-limit = 100000
+
+# Mouse support pro vim/less
+mouse-hide-while-typing = true
+
+# Clipboard settings pro DevOps prace
+clipboard-read = allow
+clipboard-write = allow
+
+# Performance tuning
+resize-overlay = never
+resize-overlay-duration = 0
+
+# Clear scrollback (pro clean view po dlouhych logech)
+keybind = cmd+k=clear_screen
+
+# Quick access to config
+keybind = cmd+comma=reload_config
