@@ -78,5 +78,3 @@ untracked = cyan
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[url "https://oauth2:***REMOVED***@gitlab.pbk-lab.tech/"]
-	insteadOf = https://gitlab.pbk-lab.tech/
