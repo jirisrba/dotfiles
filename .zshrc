@@ -66,7 +66,6 @@ plugins=(
   brew
   colored-man-pages
   colorize
-  common-aliases
   copybuffer
   copyfile
   copypath
