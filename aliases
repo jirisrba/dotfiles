@@ -61,10 +61,11 @@ alias kgs='kubecolor --force-colors get svc'
 alias kgn='kubecolor --force-colors get nodes'
 alias kgns='kubecolor --force-colors get namespaces'
 alias kgi='kubecolor --force-colors get ingress'
+alias kds='kubecolor --force-colors describe'
 
 # Custom kubectl aliases
 alias kgng='kubecolor --force-colors get nodes --label-columns=node.kubernetes.io/instance-type,nodegroup'
-alias kga='kubecolor --force-colors get all,cm,secret,externalsecret,ing,gw,vs'
+alias kga='kubecolor --force-colors get all,cm,secret,externalsecret,ing'
 alias kgpf='kubecolor --force-colors get pod --field-selector=status.phase!=Running,status.phase!=Succeeded'
 alias kgir='kubecolor --force-colors get ingressroute'
 alias kges='kubecolor --force-colors get externalsecret'
