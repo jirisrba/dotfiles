@@ -35,10 +35,20 @@ kpglistall() {
   kubectl get clusters.postgresql.cnpg.io --all-namespaces
 }
 
-# Interactive psql session
-# Usage: kpgi <cluster-name> [-n namespace]
+# Interactive psql session (auto-detects cluster)
+# Usage: kpgi [cluster-name] [-n namespace]
 kpgi() {
-  kubectl cnpg psql "$@"
+  if [[ $# -eq 0 || "$1" == -* ]]; then
+    local cluster
+    cluster=$(kubectl get clusters.postgresql.cnpg.io -o jsonpath='{.items[0].metadata.name}' "$@" 2>/dev/null)
+    if [[ -z "$cluster" ]]; then
+      echo "No CNPG cluster found in current namespace" >&2
+      return 1
+    fi
+    kubectl cnpg psql "$cluster" "$@"
+  else
+    kubectl cnpg psql "$@"
+  fi
 }
 
 # Run a single SQL command
@@ -59,16 +69,36 @@ kpgf() {
   kubectl cnpg psql "$cluster" "$@" -- -f "$file"
 }
 
-# Get cluster status
-# Usage: kpgstatus <cluster-name> [-n namespace]
+# Get cluster status (auto-detects cluster in current namespace if not specified)
+# Usage: kpgstatus [cluster-name] [-n namespace]
 kpgstatus() {
-  kubectl cnpg status "$@"
+  if [[ $# -eq 0 || "$1" == -* ]]; then
+    local cluster
+    cluster=$(kubectl get clusters.postgresql.cnpg.io -o jsonpath='{.items[0].metadata.name}' "$@" 2>/dev/null)
+    if [[ -z "$cluster" ]]; then
+      echo "No CNPG cluster found in current namespace" >&2
+      return 1
+    fi
+    kubectl cnpg status "$cluster" "$@"
+  else
+    kubectl cnpg status "$@"
+  fi
 }
 
-# Get detailed cluster status with verbose output
-# Usage: kpgstatusv <cluster-name> [-n namespace]
+# Get detailed cluster status with verbose output (auto-detects cluster)
+# Usage: kpgstatusv [cluster-name] [-n namespace]
 kpgstatusv() {
-  kubectl cnpg status "$@" --verbose
+  if [[ $# -eq 0 || "$1" == -* ]]; then
+    local cluster
+    cluster=$(kubectl get clusters.postgresql.cnpg.io -o jsonpath='{.items[0].metadata.name}' "$@" 2>/dev/null)
+    if [[ -z "$cluster" ]]; then
+      echo "No CNPG cluster found in current namespace" >&2
+      return 1
+    fi
+    kubectl cnpg status "$cluster" "$@" --verbose
+  else
+    kubectl cnpg status "$@" --verbose
+  fi
 }
 
 # Create a backup
@@ -93,12 +123,22 @@ kpglogs() {
   kubectl cnpg logs cluster "$@" -f
 }
 
-# Get logs from primary only
-# Usage: kpglogsp <cluster-name> [-n namespace]
+# Get logs from primary only (auto-detects cluster)
+# Usage: kpglogsp [cluster-name] [-n namespace]
 kpglogsp() {
-  local cluster="$1"
-  shift
-  kubectl cnpg logs cluster "$cluster" "$@" -f --primary
+  if [[ $# -eq 0 || "$1" == -* ]]; then
+    local cluster
+    cluster=$(kubectl get clusters.postgresql.cnpg.io -o jsonpath='{.items[0].metadata.name}' "$@" 2>/dev/null)
+    if [[ -z "$cluster" ]]; then
+      echo "No CNPG cluster found in current namespace" >&2
+      return 1
+    fi
+    kubectl cnpg logs cluster "$cluster" "$@" -f --primary
+  else
+    local cluster="$1"
+    shift
+    kubectl cnpg logs cluster "$cluster" "$@" -f --primary
+  fi
 }
 
 # Promote a replica to primary
@@ -193,18 +233,6 @@ kpgpvc() {
   local cluster="$1"
   shift
   kubectl get pvc -l cnpg.io/cluster="$cluster" "$@"
-}
-
-# Hibernate cluster (scale to 0)
-# Usage: kpghibernate <cluster-name> [-n namespace]
-kpghibernate() {
-  kubectl cnpg hibernate on "$@"
-}
-
-# Wake up hibernated cluster
-# Usage: kpgwake <cluster-name> [-n namespace]
-kpgwake() {
-  kubectl cnpg hibernate off "$@"
 }
 
 # =============================================================================
