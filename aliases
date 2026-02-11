@@ -23,6 +23,8 @@ alias vpnx='scutil --nc stop "CloudTalk VPN"'
 
 # vscode
 alias vs='code'
+export EDITOR="code --wait"
+export VISUAL="code --wait"
 
 # git alias
 # source: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
