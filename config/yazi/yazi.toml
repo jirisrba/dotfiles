@@ -1,0 +1,118 @@
+# Yazi Configuration - DevOps Optimized
+# ~/.config/yazi/yazi.toml
+
+# -- Manager -----------------------------------------------------------------
+[mgr]
+ratio          = [1, 4, 3]
+sort_by        = "natural"
+sort_sensitive = true          # Case-sensitive: Dockerfile vs dockerfile matters
+sort_reverse   = false
+sort_dir_first = true
+linemode       = "none"
+show_hidden    = true          # Show dotfiles: .env, .terraform, .kube, .gitignore
+show_symlink   = true
+scrolloff      = 5
+title_format   = "Yazi: {cwd}"
+
+# -- Preview ------------------------------------------------------------------
+[preview]
+wrap      = "no"
+tab_size  = 2                  # Matches YAML/HCL/Helm conventions
+max_width  = 600
+max_height = 900
+image_filter  = "triangle"
+image_quality = 75
+
+# -- Openers ------------------------------------------------------------------
+[opener]
+edit = [
+  { run = 'code "$@"',        orphan = true, desc = "VS Code",         for = "macos" },
+  { run = 'code --wait "$@"', block = true,  desc = "VS Code (block)", for = "macos" },
+  { run = '$EDITOR "$@"',     block = true,  desc = "$EDITOR" },
+]
+
+open = [
+  { run = 'open "$@"',  orphan = true, desc = "Open (macOS)", for = "macos" },
+  { run = 'xdg-open "$@"', orphan = true, desc = "Open (Linux)", for = "linux" },
+]
+
+play = [
+  { run = 'mpv "$@"', orphan = true, for = "unix" },
+]
+
+# DevOps-specific openers
+jq_view = [
+  { run = 'jq "." "$1" | bat --language json --paging always', block = true, desc = "jq pretty-print" },
+]
+
+yq_view = [
+  { run = 'yq "." "$1" | bat --language yaml --paging always', block = true, desc = "yq pretty-print" },
+]
+
+bat_view = [
+  { run = 'bat --paging always "$@"', block = true, desc = "bat syntax view" },
+]
+
+# -- Open Rules ---------------------------------------------------------------
+[open]
+prepend_rules = [
+  # DevOps: JSON files via jq
+  { mime = "application/json", use = ["jq_view", "edit"] },
+  { url  = "*.json",          use = ["jq_view", "edit"] },
+
+  # DevOps: YAML files via yq
+  { url = "*.yaml", use = ["yq_view", "edit"] },
+  { url = "*.yml",  use = ["yq_view", "edit"] },
+
+  # Terraform / HCL
+  { url = "*.tf",     use = "edit" },
+  { url = "*.tfvars", use = "edit" },
+  { url = "*.hcl",    use = "edit" },
+
+  # Docker
+  { url = "Dockerfile",   use = "edit" },
+  { url = "Dockerfile.*", use = "edit" },
+  { url = "*.dockerfile", use = "edit" },
+  { url = "compose.yaml", use = ["yq_view", "edit"] },
+  { url = "compose.yml",  use = ["yq_view", "edit"] },
+  { url = "docker-compose.yaml", use = ["yq_view", "edit"] },
+  { url = "docker-compose.yml",  use = ["yq_view", "edit"] },
+
+  # Kubernetes / Helm
+  { url = "values.yaml",   use = ["yq_view", "edit"] },
+  { url = "Chart.yaml",    use = ["yq_view", "edit"] },
+
+  # CI/CD and automation
+  { url = "Jenkinsfile",        use = "edit" },
+  { url = "Vagrantfile",        use = "edit" },
+  { url = ".gitlab-ci.yml",     use = ["yq_view", "edit"] },
+  { url = ".github/workflows/*", use = ["yq_view", "edit"] },
+  { url = "ansible.cfg",        use = "edit" },
+  { url = "Makefile",           use = "edit" },
+
+  # Bat view for all text as fallback opener
+  { mime = "text/*", use = ["edit", "bat_view"] },
+]
+
+# -- Tasks --------------------------------------------------------------------
+[tasks]
+micro_workers    = 10
+macro_workers    = 10
+bizarre_retry    = 3
+suppress_preload = false
+
+# -- Plugin Previewers --------------------------------------------------------
+[plugin]
+prepend_previewers = [
+  # Use built-in code previewer for DevOps file types
+  { url = "*.tf",         run = "code" },
+  { url = "*.tfvars",     run = "code" },
+  { url = "*.hcl",        run = "code" },
+  { url = "Dockerfile",   run = "code" },
+  { url = "Dockerfile.*", run = "code" },
+  { url = "*.dockerfile", run = "code" },
+  { url = "Jenkinsfile",  run = "code" },
+  { url = "Vagrantfile",  run = "code" },
+  { url = "Makefile",     run = "code" },
+  { url = "ansible.cfg",  run = "code" },
+]

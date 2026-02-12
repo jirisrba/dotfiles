@@ -1,0 +1,53 @@
+# Yazi Keymap - DevOps Shortcuts
+# ~/.config/yazi/keymap.toml
+
+[mgr]
+prepend_keymap = [
+  # -- DevOps Tools (g prefix = "go to tool") --------------------------------
+
+    # Terraform plan
+  { on = ["g", "t"], run = "shell 'tofu plan' --block", desc = "Terraform plan" },
+
+  # Helm list
+  { on = ["g", "h"], run = "shell 'helm list --all-namespaces' --block", desc = "Helm: list releases" },
+
+  # Vault status
+  { on = ["g", "v"], run = "shell 'vault status' --block", desc = "Vault status" },
+
+  # Ansible - pick and run playbook via fzf
+  { on = ["g", "a"], run = "shell 'f=$(fd -e yaml -e yml . --type f | fzf) && ansible-playbook $f' --block", desc = "Ansible: pick playbook" },
+
+  # AWS - caller identity
+  { on = ["g", "w"], run = "shell 'aws sts get-caller-identity | jq .' --block", desc = "AWS: caller identity" },
+
+  # -- Midnight Commander style ------------------------------------------------
+
+  # Enter = enter directory (like l/Right), open file if not a directory
+  { on = ["<Enter>"], run = "enter", desc = "Enter directory" },
+
+  # F3 = view file (bat with syntax highlighting)
+  { on = ["<F3>"], run = "shell 'bat --paging never --color always \"$1\" | less -R -K' --block", desc = "View file (F3)" },
+
+  # F4 = edit file in VS Code
+  { on = ["<F4>"], run = "shell 'code \"$1\"'", desc = "Edit file (F4)" },
+
+  # -- General Shortcuts ------------------------------------------------------
+
+  # Open terminal in current directory
+  { on = ["T"], run = "shell '$SHELL' --block", desc = "Open terminal here" },
+
+  # bat preview of current file
+  { on = ["B"], run = "shell 'bat --paging always \"$1\"' --block", desc = "bat: preview file" },
+
+  # Quick edit with $EDITOR
+  { on = ["E"], run = "shell '$EDITOR \"$1\"' --block", desc = "Edit with $EDITOR" },
+
+  # Create new file
+  { on = ["a", "f"], run = "create", desc = "Create file/directory" },
+
+  # Toggle hidden files
+  { on = ["H"], run = "hidden toggle", desc = "Toggle hidden files" },
+
+  # Shell command in cwd
+  { on = ["!"], run = "shell --block --interactive", desc = "Run shell command" },
+]
