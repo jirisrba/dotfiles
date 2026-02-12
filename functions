@@ -25,7 +25,8 @@ function gac() {
 function gcf() {
   # gcf --no-verify
   git add -A && git commit --fixup=HEAD "$@" &&
-    git rebase -i --autosquash $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD))
+    git checkout -- . &&
+    git rebase -i --autosquash $(basename $(git symbolic-ref --short refs/remotes/origin/HEAD)) &&
     git push --follow-tags --force-with-lease
 }
 
@@ -109,4 +110,13 @@ function tfw() {
 # Quick secret decode from Kubernetes
 function kdecode() {
   kubectl get secret "$1" -o json | jq -r '.data | map_values(@base64d)'
+}
+
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
