@@ -8,6 +8,9 @@ prepend_keymap = [
   # https://github.com/yazi-rs/plugins/blob/main/smart-enter.yazi/README.md
   { on   = "<ENTER>", run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
 
+  # Close input by once Esc press
+  { on = "<ESC>", run = "close", desc = "Cancel input" },
+
   # macOS: Preview files with the system Quick Look
   { on = "<C-p>", run = "shell -- qlmanage -p %s" },
 
