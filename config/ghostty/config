@@ -63,3 +63,6 @@ keybind = cmd+k=clear_screen
 
 # Quick access to config
 keybind = cmd+comma=reload_config
+
+# Enables the ability to move the cursor at prompts by using option+click
+cursor-click-to-move = true
