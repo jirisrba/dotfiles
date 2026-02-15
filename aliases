@@ -13,6 +13,7 @@ alias dush='du -sh * | sort -h'
 alias my-public-ip='curl ifconfig.me'
 alias w='curl "wttr.in/Prague?1"'
 alias pw='pwgen -s -1 32 1'
+alias isodate='date +%Y%m%dT%H%M%S'
 alias lg='lazygit'
 alias stern='stern --tail 20'
 

@@ -76,7 +76,6 @@ plugins=(
   git
   helm
   history-substring-search
-  isodate
   kubectl
   macos
   opentofu
