@@ -81,6 +81,7 @@ plugins=(
   opentofu
   python
   terraform
+  gcloud
   vscode
   zsh-autosuggestions
   zsh-completions
@@ -212,3 +213,9 @@ alias sqlprod='sql /nolog @<(echo "CONNECT \${1:-username}@DCSPROD")'
 alias sql-dev='sql @DCSDEV'
 alias sql-test='sql @DCSTEST'
 alias sql-prod='sql @DCSPROD'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jirisrba/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jirisrba/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jirisrba/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jirisrba/google-cloud-sdk/completion.zsh.inc'; fi
