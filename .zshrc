@@ -183,11 +183,18 @@ eval "$(starship init zsh)"
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-export PATH="/opt/homebrew/Caskroom/sqlcl/25.4.0.346.1855/sqlcl/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
 
 # Krew - kubectl plugin manager (required for kubectl plugins like cnpg)
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# =============================================================================
+# ORACLE CLOUD INFRASTRUCTURE (OCI) CONFIGURATION
+# =============================================================================
+
+export OCI_CONFIG_FILE_PROFILE=default
+export OCI_REGION=eu-frankfurt-1
 
 # =============================================================================
 # GITLAB CONFIGURATION

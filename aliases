@@ -94,6 +94,11 @@ alias ssm-us='gossm start --profile ${AWS_PROFILE:-default} --region us-east-1'
 alias ssm-ap='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-1'
 alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeast-2'
 
+# OCI aliases
+alias oci-adm-sso='osp adm-srba-sso sso'
+alias oci-default='osp default'
+alias oci-refresh='oci session refresh --profile ${OCI_CONFIG_FILE_PROFILE:-default}'
+
 # AI tool aliases
 ## Claude code aliases
 alias cc="claude"

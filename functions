@@ -98,6 +98,47 @@ function update() {
   #  sudo -H gem cleanup
 }
 
+# OCI profile switcher (similar to AWS plugin's `asp`)
+# Usage: osp                   - list profiles
+#        osp <profile>         - switch to API key profile
+#        osp <profile> sso     - switch to SSO profile + refresh token
+function osp() {
+  if [[ -z "$1" ]]; then
+    echo "Current profile: ${OCI_CONFIG_FILE_PROFILE:-DEFAULT}"
+    echo ""
+    echo "Available profiles:"
+    grep "^\[" ~/.oci/config | tr -d '[]'
+    return
+  fi
+
+  if ! grep -q "^\[$1\]" ~/.oci/config; then
+    echo "Profile '$1' not found in ~/.oci/config" >&2
+    echo "Available profiles:" >&2
+    grep "^\[" ~/.oci/config | tr -d '[]' >&2
+    return 1
+  fi
+
+  export OCI_CONFIG_FILE_PROFILE="$1"
+
+  if [[ "$2" == "sso" ]]; then
+    export OCI_AUTH=SecurityToken
+    echo "Refreshing SSO token for profile '$1'..."
+    oci session refresh --profile "$1" 2>/dev/null || \
+      oci session authenticate --region "${OCI_REGION:-eu-frankfurt-1}" --profile-name "$1"
+    echo "Switched to OCI SSO profile: $1"
+  else
+    unset OCI_AUTH
+    echo "Switched to OCI API key profile: $1"
+  fi
+}
+
+# Show current OCI profile and auth settings
+function oci_profile() {
+  echo "OCI_CONFIG_FILE_PROFILE: ${OCI_CONFIG_FILE_PROFILE:-DEFAULT}"
+  echo "OCI_AUTH:                ${OCI_AUTH:-(not set, using APIKey)}"
+  echo "OCI_REGION:              ${OCI_REGION:-eu-frankfurt-1}"
+}
+
 # Terraform workspace operations
 function tfw() {
   if [[ -z "$1" ]]; then
