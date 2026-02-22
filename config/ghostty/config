@@ -1,39 +1,75 @@
+# Ghostty Terminal - Complete Configuration
+# ============================================
+# File: ~/.config/ghostty/config
+# Reload: Cmd+Shift+, (macOS)
+# View options: ghostty +show-config --default --docs
+
 # Font
 font-family = "JetBrains Mono"
 # font-family = "Fira Code"
 font-size = 14
+font-thicken = true
+adjust-cell-height = 2
+
+# Font size
+keybind = cmd+plus=increase_font_size:1
+keybind = cmd+minus=decrease_font_size:1
+keybind = cmd+zero=reset_font_size
 
 # Dracula Theme
 theme = Dracula
 window-theme = ghostty
 
-# Pravé tlačítko myši = paste
-copy-on-select = clipboard
+# Window and Appearance
+background-opacity = 1
+macos-titlebar-style = transparent
+window-decoration = true
+window-padding-x = 10
+window-padding-y = 8
+window-save-state = always
+window-theme = auto
+
+# Cursor
+cursor-style = bar
+cursor-style-blink = true
+cursor-opacity = 0.8
+# Enables the ability to move the cursor at prompts by using option+click
+cursor-click-to-move = true
+
+# Mouse
 right-click-action = paste
+mouse-hide-while-typing = true
+copy-on-select = clipboard
 
 # Hotkey window (F12)
 keybind = global:f12=toggle_visibility
 # keybind = global:f12=toggle_quick_terminal
 
-window-decoration = true
-
 # Quick terminal positioning (for F12 hotkey window)
 quick-terminal-position = top
 quick-terminal-screen = main
+quick-terminal-screen = mouse
+quick-terminal-autohide = true
+quick-terminal-animation-duration = 0.15
 
-# Window padding (jako iTerm2 margins)
-window-padding-x = 10
-window-padding-y = 10
-
-# Splits support (místo tmux)
-keybind = cmd+d=new_split:right
-keybind = cmd+shift+d=new_split:down
-keybind = cmd+w=close_surface
-
+# Keybindings
 # Tab support
 keybind = cmd+t=new_tab
-keybind = cmd+shift+left_bracket=previous_tab
-keybind = cmd+shift+right_bracket=next_tab
+keybind = cmd+shift+left=previous_tab
+keybind = cmd+shift+right=next_tab
+keybind = cmd+w=close_surface
+
+# Splits
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+d=new_split:down
+keybind = cmd+alt+left=goto_split:left
+keybind = cmd+alt+right=goto_split:right
+keybind = cmd+alt+up=goto_split:top
+keybind = cmd+alt+down=goto_split:bottom
+
+# Splits management
+keybind = cmd+shift+e=equalize_splits
+keybind = cmd+shift+f=toggle_split_zoom
 
 # macOS specific
 macos-option-as-alt = true
@@ -44,25 +80,18 @@ auto-update = check
 shell-integration = detect
 shell-integration-features = cursor,sudo,title
 
-# Scrollback pro dlouhe logy (default je 10000)
-scrollback-limit = 100000
-
-# Mouse support pro vim/less
-mouse-hide-while-typing = true
-
 # Clipboard settings pro DevOps prace
 clipboard-read = allow
 clipboard-write = allow
 
 # Performance tuning
+scrollback-limit = 25000000
 resize-overlay = never
 resize-overlay-duration = 0
 
-# Clear scrollback (pro clean view po dlouhych logech)
+
+# Clear scrollback
 keybind = cmd+k=clear_screen
 
-# Quick access to config
-keybind = cmd+comma=reload_config
-
-# Enables the ability to move the cursor at prompts by using option+click
-cursor-click-to-move = true
+# Reload config
+keybind = cmd+shift+comma=reload_config
