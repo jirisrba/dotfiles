@@ -132,6 +132,60 @@ function osp() {
   fi
 }
 
+# GCP project switcher (similar to AWS plugin's `asp` and OCI's `osp`)
+# Usage: gsp                   - list projects and show current
+#        gsp <alias>           - switch to project by alias
+#        gsp <alias> <region>  - switch project and set region
+function gsp() {
+  local -A projects
+  projects=(
+    dev        pb-development-9yc6
+    test       pb-testing-v2cc
+    stage      pb-staging-9gps
+    prod       pb-production-gxyx
+    sandbox    pb-sandbox-q1vr
+    bootstrap  pb-bootstrap-6363
+  )
+
+  if [[ -z "$1" ]]; then
+    local current
+    current=$(gcloud config get-value project 2>/dev/null)
+    echo "Current project: ${current:-(none)}"
+    echo ""
+    echo "Available aliases:"
+    for alias in ${(k)projects}; do
+      local marker=""
+      [[ "${projects[$alias]}" == "$current" ]] && marker=" <-- active"
+      printf "  %-10s %s%s\n" "$alias" "${projects[$alias]}" "$marker"
+    done
+    return
+  fi
+
+  local project_id="${projects[$1]}"
+  if [[ -z "$project_id" ]]; then
+    echo "Unknown alias '$1'. Available: ${(k)projects}" >&2
+    return 1
+  fi
+
+  gcloud config set project "$project_id"
+  export GOOGLE_CLOUD_QUOTA_PROJECT="$project_id"
+
+  if [[ -n "$2" ]]; then
+    gcloud config set compute/region "$2"
+    echo "Switched to GCP project: $project_id (region: $2)"
+  else
+    echo "Switched to GCP project: $project_id"
+  fi
+}
+
+# Show current GCP config
+function gcp_profile() {
+  echo "Project:  $(gcloud config get-value project 2>/dev/null || echo '(none)')"
+  echo "Region:   $(gcloud config get-value compute/region 2>/dev/null || echo '(none)')"
+  echo "Account:  $(gcloud config get-value account 2>/dev/null || echo '(none)')"
+  echo "GOOGLE_CLOUD_QUOTA_PROJECT: ${GOOGLE_CLOUD_QUOTA_PROJECT:-(not set)}"
+}
+
 # Show current OCI profile and auth settings
 function oci_profile() {
   echo "OCI_CONFIG_FILE_PROFILE: ${OCI_CONFIG_FILE_PROFILE:-DEFAULT}"
