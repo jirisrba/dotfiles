@@ -24,10 +24,11 @@ window-theme = ghostty
 background-opacity = 1
 macos-titlebar-style = transparent
 window-decoration = true
-window-padding-x = 10
-window-padding-y = 8
+window-padding-x = 5
+window-padding-y = 5
 window-save-state = always
 window-theme = auto
+unfocused-split-opacity = 0.60
 
 # Cursor
 cursor-style = bar
@@ -88,7 +89,6 @@ clipboard-write = allow
 scrollback-limit = 25000000
 resize-overlay = never
 resize-overlay-duration = 0
-
 
 # Clear scrollback
 keybind = cmd+k=clear_screen
