@@ -167,7 +167,13 @@ function gsp() {
     return 1
   fi
 
-  gcloud config set project "$project_id"
+  local set_output
+  set_output=$(gcloud config set project "$project_id" 2>&1)
+  if echo "$set_output" | grep -q "Reauthentication required\|Please run.*gcloud auth login"; then
+    echo "Reauthentication required, logging in..."
+    gcloud auth login --update-adc || return 1
+    gcloud config set project "$project_id"
+  fi
   export GOOGLE_CLOUD_QUOTA_PROJECT="$project_id"
 
   if [[ -n "$2" ]]; then
