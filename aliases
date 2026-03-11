@@ -84,6 +84,9 @@ alias -g OY="--output yaml"
 alias -g LL=' |& less -R'
 alias -g GG=' |& rg'
 
+# GCP aliases
+alias gcpsso='gcloud auth login --update-adc'
+
 # AWS aliases
 alias awsso='aws sso login'
 
