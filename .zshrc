@@ -195,8 +195,9 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # ORACLE CLOUD INFRASTRUCTURE (OCI) CONFIGURATION
 # =============================================================================
 
-export OCI_CONFIG_FILE_PROFILE=DEFAULT
+export OCI_CLI_PROFILE=DEFAULT
 export OCI_REGION=eu-frankfurt-1
+export OCI_CLI_AUTH=security_token
 export OCI_CLI_SUPPRESS_FILE_PERMISSIONS_WARNING=True
 
 # =============================================================================

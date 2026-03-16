@@ -103,15 +103,19 @@ function update() {
 #        gsp <alias>           - switch to project by alias
 #        gsp <alias> <region>  - switch project and set region
 function gsp() {
-  local -A projects
-  projects=(
-    dev        pb-development-9yc6
-    test       pb-testing-v2cc
-    stage      pb-staging-9gps
-    prod       pb-production-gxyx
-    sandbox    pb-sandbox-q1vr
-    bootstrap  pb-bootstrap-6363
-  )
+  # Compatible with both zsh and bash
+  local aliases="dev test stage prod sandbox bootstrap"
+  local _gsp_project() {
+    case "$1" in
+      dev)       echo "pb-development-9yc6" ;;
+      test)      echo "pb-testing-v2cc" ;;
+      stage)     echo "pb-staging-9gps" ;;
+      prod)      echo "pb-production-gxyx" ;;
+      infra)     echo "pb-infra-lr1e" ;;
+      sandbox)   echo "pb-sandbox-q1vr" ;;
+      bootstrap) echo "pb-bootstrap-6363" ;;
+    esac
+  }
 
   if [[ -z "$1" ]]; then
     local current
@@ -119,17 +123,21 @@ function gsp() {
     echo "Current project: ${current:-(none)}"
     echo ""
     echo "Available aliases:"
-    for alias in ${(k)projects}; do
-      local marker=""
-      [[ "${projects[$alias]}" == "$current" ]] && marker=" <-- active"
-      printf "  %-10s %s%s\n" "$alias" "${projects[$alias]}" "$marker"
+    for a in $aliases; do
+      local pid marker=""
+      pid=$(_gsp_project "$a")
+      [[ "$pid" == "$current" ]] && marker=" <-- active"
+      printf "  %-10s %s%s\n" "$a" "$pid" "$marker"
     done
+    unset -f _gsp_project
     return
   fi
 
-  local project_id="${projects[$1]}"
+  local project_id
+  project_id=$(_gsp_project "$1")
+  unset -f _gsp_project
   if [[ -z "$project_id" ]]; then
-    echo "Unknown alias '$1'. Available: ${(k)projects}" >&2
+    echo "Unknown alias '$1'. Available: $aliases" >&2
     return 1
   fi
 
