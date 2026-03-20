@@ -59,7 +59,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 ZSH_ALIAS_FINDER_AUTOMATIC=true
+ZSH_DOTENV_PROMPT=false
 
 plugins=(
   alias-finder
@@ -214,6 +216,8 @@ export GITLAB_ACCESS_TOKEN=$(security find-generic-password -a "$USER" -s "gitla
 # Oracle TNS Names configuration
 export TNS_ADMIN="$HOME/oracle/network/admin"
 export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
+export NLS_DATE_FORMAT="dd.mm.yyyy hh24:mi:ss"
+export SQLPATH="$HOME/code/SQL/oracle"
 
 # SQLcl aliases for quick database access
 alias sqldev='sql /nolog @<(echo "CONNECT \${1:-username}@DCSDEV")'
@@ -224,6 +228,8 @@ alias sqlprod='sql /nolog @<(echo "CONNECT \${1:-username}@DCSPROD")'
 alias sql-dev='sql @DCSDEV'
 alias sql-test='sql @DCSTEST'
 alias sql-prod='sql @DCSPROD'
+
+# Google Cloud SDK (gcloud) configuration
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jirisrba/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jirisrba/google-cloud-sdk/path.zsh.inc'; fi
