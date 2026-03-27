@@ -79,7 +79,7 @@ auto-update = check
 
 # Shell integration
 shell-integration = detect
-shell-integration-features = cursor,sudo,title
+shell-integration-features = cursor,sudo,title,ssh-env
 
 # Clipboard
 clipboard-read = allow
