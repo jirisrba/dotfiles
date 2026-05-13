@@ -229,3 +229,4 @@ if [ -f '/Users/jirisrba/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/
 
 # zsh-syntax-highlighting: brighter comments
 ZSH_HIGHLIGHT_STYLES[comment]='fg=245'
+eval "$(direnv hook zsh)"

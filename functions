@@ -32,12 +32,8 @@ function gcf() {
 
 # Create PR for Github
 function ghprc() {
-  num_commits=$(git rev-list --count HEAD ^origin)
-  if [[ $num_commits -gt 1 ]]; then
-    gh pr create --fill --title "$(git branch --show-current)"
-  else
-    gh pr create --title "$(git branch --show-current)" --body "$(git log --pretty=format:%s HEAD ^origin)"
-  fi
+  local title=$(git log --reverse --format=%s origin..HEAD | head -1)
+  gh pr create --fill --title "${title:-$(git log -1 --format=%s)}" "$@"
 }
 
 # Open current PR in browser
@@ -47,12 +43,11 @@ function ghpr() {
 
 # Create MR for GitLab
 function glmrc() {
-  num_commits=$(git rev-list --count HEAD ^origin)
-  if [[ $num_commits -gt 1 ]]; then
-    glab mr create --fill --title "$(git branch --show-current)" --assignee jiri.srba --remove-source-branch
-  else
-    glab mr create --title "$(git branch --show-current)" --description "$(git log --pretty=format:%s HEAD ^origin)" --assignee jiri.srba --remove-source-branch
-  fi
+  local title=$(git log --reverse --format=%s origin..HEAD | head -1)
+  glab mr create \
+    --title "${title:-$(git log -1 --format=%s)}" \
+    --description "$(git log --pretty=format:%s HEAD ^origin)" \
+    --assignee jiri.srba --remove-source-branch
 }
 
 # Open current MR in browser
