@@ -24,6 +24,7 @@ alias vpnx='scutil --nc stop "CloudTalk VPN"'
 
 # vscode
 alias vs='code'
+alias vsg='code .gitlab-ci.yml'
 export EDITOR="code --wait"
 export VISUAL="code --wait"
 
@@ -101,7 +102,7 @@ alias ssm-sy='gossm start --profile ${AWS_PROFILE:-default} --region ap-southeas
 ## Claude code aliases
 alias cc="claude"
 alias cc-quick="claude -p"                          # Quick queries (print mode, no interactive)
-alias cc-continue="claude -c"                       # Continue last conversation
+alias ccc="claude -c"                       # Continue last conversation
 
 ## OpenCode aliases
 alias oc='opencode'
