@@ -21,8 +21,7 @@ alias kcpgcerts='kubectl cnpg certificate'
 # =============================================================================
 
 # List all CNPG clusters
-# Usage: kpglist [namespace]
-kpglist() {
+kpgc() {
   if [[ -n "$1" ]]; then
     kubectl get clusters.postgresql.cnpg.io -n "$1"
   else
@@ -31,7 +30,7 @@ kpglist() {
 }
 
 # List all CNPG clusters across all namespaces
-kpglistall() {
+kpgca() {
   kubectl get clusters.postgresql.cnpg.io --all-namespaces
 }
 
