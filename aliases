@@ -65,6 +65,7 @@ alias kgs='kubecolor --force-colors get svc'
 alias kgn='kubecolor --force-colors get nodes'
 alias kgns='kubecolor --force-colors get namespaces'
 alias kgi='kubecolor --force-colors get ingress'
+alias kgsec='/opt/homebrew/bin/kubectl get secret'
 alias kds='kubecolor --force-colors describe'
 
 # Custom kubectl aliases
